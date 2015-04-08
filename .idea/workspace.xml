@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b05af61-451f-4e48-ab13-00be28a65757" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/front/public/css/card.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/front/public/scripts/card.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/front/public/css/base.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/front/public/scripts/example.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bridge/shuffler/ShufflerService.java" afterPath="$PROJECT_DIR$/src/main/java/bridge/shuffler/ShufflerService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front/comments.json" afterPath="$PROJECT_DIR$/front/comments.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front/public/index.html" afterPath="$PROJECT_DIR$/front/public/index.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/front/comments.json" afterPath="$PROJECT_DIR$/front/cards.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front/public/scripts/card.js" afterPath="$PROJECT_DIR$/front/public/scripts/card.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front/server.js" afterPath="$PROJECT_DIR$/front/server.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Bridge.iws" />
@@ -45,8 +41,8 @@
       <file leaf-file-name="server.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/front/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.0" vertical-offset="88" max-vertical-offset="750">
-              <caret line="18" column="15" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="15" />
+            <state vertical-scroll-proportion="-5.769231" vertical-offset="195" max-vertical-offset="750">
+              <caret line="23" column="38" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -65,8 +61,8 @@
       <file leaf-file-name="card.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/front/public/scripts/card.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6021898" vertical-offset="0" max-vertical-offset="548">
-              <caret line="22" column="2" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="2" />
+            <state vertical-scroll-proportion="0.5894161" vertical-offset="337" max-vertical-offset="885">
+              <caret line="44" column="84" selection-start-line="44" selection-start-column="83" selection-end-line="44" selection-end-column="84" />
               <folding />
             </state>
           </provider>
@@ -111,11 +107,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="comments.json" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/front/comments.json">
+      <file leaf-file-name="cards.json" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/front/cards.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="135">
-              <caret line="2" column="67" selection-start-line="2" selection-start-column="67" selection-end-line="2" selection-end-column="67" />
+            <state vertical-scroll-proportion="-0.625" vertical-offset="0" max-vertical-offset="120">
+              <caret line="1" column="37" selection-start-line="1" selection-start-column="37" selection-end-line="1" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -169,6 +165,8 @@
         <option value="$PROJECT_DIR$/front/public/scripts/example.js" />
         <option value="$PROJECT_DIR$/front/public/index.html" />
         <option value="$PROJECT_DIR$/front/public/css/card.css" />
+        <option value="$PROJECT_DIR$/front/server.js" />
+        <option value="$PROJECT_DIR$/front/cards.json" />
         <option value="$PROJECT_DIR$/front/public/scripts/card.js" />
       </list>
     </option>
@@ -1073,12 +1071,12 @@
       <created>1428414282994</created>
       <updated>1428414282994</updated>
       <workItem from="1428414284276" duration="1836000" />
-      <workItem from="1428416128653" duration="16397000" />
+      <workItem from="1428416128653" duration="18123000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18233000" />
+    <option name="totallyTimeSpent" value="19959000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="874" extended-state="6" />
@@ -1450,34 +1448,10 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.0" vertical-offset="88" max-vertical-offset="750">
-          <caret line="18" column="15" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/front/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.28" vertical-offset="16" max-vertical-offset="540">
           <caret line="22" column="8" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front/comments.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="135">
-          <caret line="2" column="67" selection-start-line="2" selection-start-column="67" selection-end-line="2" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.375" vertical-offset="0" max-vertical-offset="315">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1490,10 +1464,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/front/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.375" vertical-offset="0" max-vertical-offset="315">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.769231" vertical-offset="195" max-vertical-offset="750">
+          <caret line="23" column="38" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front/cards.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.625" vertical-offset="0" max-vertical-offset="120">
+          <caret line="1" column="37" selection-start-line="1" selection-start-column="37" selection-end-line="1" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/front/public/scripts/card.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6021898" vertical-offset="0" max-vertical-offset="548">
-          <caret line="22" column="2" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="2" />
+        <state vertical-scroll-proportion="0.5894161" vertical-offset="337" max-vertical-offset="885">
+          <caret line="44" column="84" selection-start-line="44" selection-start-column="83" selection-end-line="44" selection-end-column="84" />
           <folding />
         </state>
       </provider>
