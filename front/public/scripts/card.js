@@ -2,7 +2,9 @@ var Card = React.createClass({
     render: function () {
         return (
             <div className='card'>
-                <img src={'images/ck.gif'}/>
+                <h2 className="cardAuthor"> {this.props.value} </h2>
+                <h2> {this.props.color} </h2>
+                <img src={"images/" + this.colorShortcut(this.props.color) + this.valueShortcut(this.props.value) + ".gif"}/>
             </div>
             );
     },
