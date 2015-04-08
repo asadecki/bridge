@@ -1,7 +1,9 @@
 package bridge.domain;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 public class Deck {
 
@@ -22,6 +24,6 @@ public class Deck {
     }
 
     public List<Card> getCards() {
-        return cards;
+        return Optional.ofNullable(cards).orElse(Collections.emptyList());
     }
 }
