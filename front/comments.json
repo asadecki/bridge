@@ -1,14 +1,4 @@
 [
-    {
-        "author": "Pete Hunt",
-        "text": "Hey there!"
-    },
-    {
-        "author": "sda",
-        "text": "adsa"
-    },
-    {
-        "author": "adsads",
-        "text": "asdasd"
-    }
+    {"author": "Pete Hunt", "text": "This is one comment"},
+    {"author": "Jordan Walke", "text": "This is *another* comment"}
 ]

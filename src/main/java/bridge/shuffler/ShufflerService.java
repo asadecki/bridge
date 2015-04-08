@@ -13,7 +13,7 @@ import java.util.Random;
  * With current shuffle method implementation 99 % of case
  * will provide JQKA of Spade for 4th player
  *
- * We can take numbers from 0 to 51 and sort them
+ * We can take numbers from 0 to 51 and use Collections#shuffle
  * Then divide into 4 groups and get cards
  */
 @Deprecated
@@ -26,6 +26,7 @@ public class ShufflerService {
     }
 
     public Table shuffle(Deck deck) {
+
         Table table = new Table();
 
         deck.getCards().forEach(
