@@ -8,11 +8,20 @@ import bridge.domain.Table;
 
 import java.util.Random;
 
-public class Shuffler {
+/**
+ * This class is cool but we can do it better
+ * With current shuffle method implementation 99 % of case
+ * will provide JQKA of Spade for 4th player
+ *
+ * We can take numbers from 0 to 51 and sort them
+ * Then divide into 4 groups and get cards
+ */
+@Deprecated
+public class ShufflerService {
 
     private Random random;
 
-    public Shuffler(Random random) {
+    public ShufflerService(Random random) {
         this.random = random;
     }
 
