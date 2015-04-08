@@ -1,8 +1,8 @@
 package com.example.helloworld.resources;
 
+import com.codahale.metrics.annotation.Timed;
 import com.example.helloworld.core.Saying;
 import com.google.common.base.Optional;
-import com.codahale.metrics.annotation.Timed;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
