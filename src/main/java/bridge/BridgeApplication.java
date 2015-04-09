@@ -2,6 +2,7 @@ package bridge;
 
 import bridge.domain.Deck;
 import bridge.health.TemplateHealthCheck;
+import bridge.resources.HandPowerResource;
 import bridge.resources.TableResource;
 import bridge.shuffler.ShufflerService;
 import io.dropwizard.Application;
@@ -51,11 +52,13 @@ public class BridgeApplication extends Application<BridgeConfiguration> {
         ShufflerService shufflerService = new ShufflerService(random);
 
         final TableResource tableResource = new TableResource(shufflerService, deck);
+        final HandPowerResource handPowerResource = new HandPowerResource();
 
         final TemplateHealthCheck healthCheck = new TemplateHealthCheck();
 
 
         environment.healthChecks().register("template", healthCheck);
         environment.jersey().register(tableResource);
+        environment.jersey().register(handPowerResource);
     }
 }
