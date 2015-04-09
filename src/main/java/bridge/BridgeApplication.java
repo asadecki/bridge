@@ -4,6 +4,7 @@ import bridge.domain.Deck;
 import bridge.health.TemplateHealthCheck;
 import bridge.resources.HandPowerResource;
 import bridge.resources.TableResource;
+import bridge.services.TableService;
 import bridge.shuffler.ShufflerService;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
@@ -17,48 +18,48 @@ import java.util.Random;
 
 public class BridgeApplication extends Application<BridgeConfiguration> {
 
-    public static void main(String[] args) throws Exception {
-        new BridgeApplication().run(args);
-    }
+	public static void main(String[] args) throws Exception {
+		new BridgeApplication().run(args);
+	}
 
-    @Override
-    public String getName() {
-        return "bridge";
-    }
+	@Override
+	public String getName() {
+		return "bridge";
+	}
 
-    @Override
-    public void initialize(Bootstrap<BridgeConfiguration> bootstrap) {
-    }
+	@Override
+	public void initialize(Bootstrap<BridgeConfiguration> bootstrap) {
+	}
 
-    @Override
-    public void run(BridgeConfiguration configuration,
-                    Environment environment) {
+	@Override
+	public void run(BridgeConfiguration configuration,
+	                Environment environment) {
 
-        // Enable CORS headers
-        final FilterRegistration.Dynamic cors =
-            environment.servlets().addFilter("CORS", CrossOriginFilter.class);
+		// Enable CORS headers
+		final FilterRegistration.Dynamic cors =
+			environment.servlets().addFilter("CORS", CrossOriginFilter.class);
 
-        // Configure CORS parameters
-        cors.setInitParameter("allowedOrigins", "*");
-        cors.setInitParameter("allowedHeaders", "X-Requested-With,Content-Type,Accept,Origin");
-        cors.setInitParameter("allowedMethods", "OPTIONS,GET,PUT,POST,DELETE,HEAD");
+		// Configure CORS parameters
+		cors.setInitParameter("allowedOrigins", "*");
+		cors.setInitParameter("allowedHeaders", "X-Requested-With,Content-Type,Accept,Origin");
+		cors.setInitParameter("allowedMethods", "OPTIONS,GET,PUT,POST,DELETE,HEAD");
 
-        // Add URL mapping
-        cors.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/*");
+		// Add URL mapping
+		cors.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/*");
 
-        Deck deck = new Deck();
-        Random random = new Random();
+		Deck deck = new Deck();
+		Random random = new Random();
 
-        ShufflerService shufflerService = new ShufflerService(random);
+		ShufflerService shufflerService = new ShufflerService(random);
+		TableService tableService = new TableService(shufflerService, deck);
 
-        final TableResource tableResource = new TableResource(shufflerService, deck);
-        final HandPowerResource handPowerResource = new HandPowerResource();
+		final TableResource tableResource = new TableResource(tableService);
+		final HandPowerResource handPowerResource = new HandPowerResource();
 
-        final TemplateHealthCheck healthCheck = new TemplateHealthCheck();
+		final TemplateHealthCheck healthCheck = new TemplateHealthCheck();
 
-
-        environment.healthChecks().register("template", healthCheck);
-        environment.jersey().register(tableResource);
-        environment.jersey().register(handPowerResource);
-    }
+		environment.healthChecks().register("template", healthCheck);
+		environment.jersey().register(tableResource);
+		environment.jersey().register(handPowerResource);
+	}
 }

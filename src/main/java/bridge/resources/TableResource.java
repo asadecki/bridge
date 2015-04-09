@@ -4,6 +4,7 @@ import bridge.domain.Card;
 import bridge.domain.Deck;
 import bridge.domain.PlayerPlace;
 import bridge.domain.Table;
+import bridge.services.TableService;
 import bridge.shuffler.ShufflerService;
 import com.codahale.metrics.annotation.Timed;
 
@@ -18,30 +19,22 @@ import java.util.List;
 @Produces(MediaType.APPLICATION_JSON)
 public class TableResource {
 
-    private ShufflerService shufflerService;
-    private Deck deck;
+	private TableService tableService;
 
-    public TableResource(ShufflerService shufflerService, Deck deck) {
-        this.shufflerService = shufflerService;
-        this.deck = deck;
+    public TableResource(TableService tableService) {
+	    this.tableService = tableService;
     }
 
     @GET
     @Timed
     public Table getTable() {
-        return shufflerService.shuffle(deck);
+        return tableService.getTable();
     }
 
     @GET
     @Timed
     @Path("/{player}")
-    public List<Card> getHand(@PathParam("player") String playerName) {
-        return shufflerService.shuffle(deck).getPlayers()
-            .stream()
-            .filter(player -> player.getName().equals(PlayerPlace.valueOf(playerName)))
-            .findFirst()
-            .get()
-            .getHand()
-            .getCards();
+    public List<Card> getCards(@PathParam("player") String playerName) {
+		return tableService.getHand(playerName).getCards();
     }
 }
