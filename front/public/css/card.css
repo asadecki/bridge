@@ -1,6 +1,8 @@
-.card {
-    display: table;
-    width: 250px;
-    height: 250px;
-    background: #4679BD;
+.hand {
+    display: inline-block;
+    float: left;
+}
+
+.cardImage {
+    margin : 10px;
 }

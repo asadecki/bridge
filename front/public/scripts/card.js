@@ -1,12 +1,6 @@
 var Card = React.createClass({
     render: function () {
-        return (
-            <div className='card'>
-                <h2 className="cardAuthor"> {this.props.value} </h2>
-                <h2> {this.props.color} </h2>
-                <img src={"images/" + this.colorShortcut(this.props.color) + this.valueShortcut(this.props.value) + ".gif"}/>
-            </div>
-            );
+        return ( <img className="cardImage" src={"images/" + this.colorShortcut(this.props.color) + this.valueShortcut(this.props.cardValue) + ".gif"}/> );
     },
 
     valueShortcut: function (value) {
@@ -51,6 +45,7 @@ var CardBox = React.createClass({
             dataType: 'json',
             success: function (data) {
                 this.setState({data: data});
+                console.log(data);
             }.bind(this),
             error: function (xhr, status, err) {
                 console.error(this.props.url, status, err.toString());
@@ -62,12 +57,11 @@ var CardBox = React.createClass({
     },
     componentDidMount: function () {
         this.loadCardsFromServer();
-        setInterval(this.loadCardsFromServer, this.props.pollInterval);
+        // setInterval(this.loadCardsFromServer, this.props.pollInterval);
     },
     render: function () {
         return (
             <div>
-                <h1>Cards</h1>
                 <CardList data={this.state.data} />
             </div>
             );
@@ -77,13 +71,15 @@ var CardBox = React.createClass({
 var CardList = React.createClass({
     render: function () {
         var cardNodes = this.props.data.map(function (card, index) {
-            return ( <Card value={card.value} color={card.color} key={index}> xxx</Card> );
+            console.log(card);
+            console.log();
+            return ( <Card cardValue={card.cardValue} color={card.color} key={index}> xxx</Card> );
         });
-        return ( <div className='cardList'> {cardNodes} </div> );
+        return ( <div className='hand'> {cardNodes} </div> );
     }
 });
 
 React.render(
-    <CardBox url='cards.json' pollInterval={2000} />,
+    <CardBox url='http://localhost:8080/hand/NORTH' pollInterval={0} />,
     document.getElementById('content')
 );
