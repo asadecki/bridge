@@ -1,36 +1,22 @@
+var cardShortcut = {
+    'TWO': 2,
+    'THREE': 3,
+    'FOUR': 4,
+    'FIVE': 5,
+    'SIX': 6,
+    'SEVEN': 7,
+    'EIGHT': 8,
+    'NINE': 9,
+    'TEN': 10,
+    'JACK': 'j',
+    'QUEEN': 'q',
+    'KING': 'k',
+    'ACE': 1
+};
+
 var Card = React.createClass({
     render: function () {
-        return ( <img className="cardImage" src={"images/" + this.colorShortcut(this.props.color) + this.valueShortcut(this.props.cardValue) + ".gif"}/> );
-    },
-
-    valueShortcut: function (value) {
-        if (value === 'TWO') {
-            return 2;
-        } else if (value === 'THREE') {
-            return 3;
-        } else if (value === 'FOUR') {
-            return 4;
-        } else if (value === 'FIVE') {
-            return 5;
-        } else if (value === 'SIX') {
-            return 6;
-        } else if (value === 'SEVEN') {
-            return 7;
-        } else if (value === 'EIGHT') {
-            return 8;
-        } else if (value === 'NINE') {
-            return 9;
-        } else if (value === 'TEN') {
-            return 10;
-        } else if (value === 'JACK') {
-            return 'j';
-        } else if (value === 'QUEEN') {
-            return 'q';
-        } else if (value === 'KING') {
-            return 'k';
-        } else if (value === 'ACE') {
-            return 1;
-        }
+        return ( <img className="cardImage" src={"images/" + this.colorShortcut(this.props.color) + cardShortcut[this.props.cardValue] + ".gif"}/> );
     },
 
     colorShortcut: function (color) {
@@ -45,7 +31,13 @@ var CardBox = React.createClass({
             dataType: 'json',
             success: function (data) {
                 this.setState({data: data});
-                console.log(data);
+                var $element = $('.cardImage');
+                $element.each(function(index, item) {
+                    console.log(item);
+                });
+                setupSolutionButtonOnclickEvent();
+                console.log($element);
+                // TODO move it somewhere !
             }.bind(this),
             error: function (xhr, status, err) {
                 console.error(this.props.url, status, err.toString());
@@ -71,8 +63,6 @@ var CardBox = React.createClass({
 var CardList = React.createClass({
     render: function () {
         var cardNodes = this.props.data.map(function (card, index) {
-            console.log(card);
-            console.log();
             return ( <Card cardValue={card.cardValue} color={card.color} key={index}> xxx</Card> );
         });
         return ( <div className='hand'> {cardNodes} </div> );
@@ -89,14 +79,13 @@ var Page = React.createClass({
     render: function () {
         return (
             <div>
-                <CardBox url='cards.json' pollInterval={0} />
+                <CardBox url={this.props.url} pollInterval={0} />
                 <SenderButton/>
             </div>
-        );
+            );
     }
 });
 
 React.render(
-    //CardBox url='http://localhost:8080/hand/NORTH' pollInterval={0} />, document.getElementById('content')
-    <Page url='cards.json' pollInterval={0} />, document.getElementById('content')
+    <Page url='http://localhost:8080/hand/NORTH' pollInterval={0} />, document.getElementById('content')
 );
