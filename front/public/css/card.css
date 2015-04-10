@@ -1,8 +1,21 @@
 .hand {
     display: inline-block;
-    float: left;
 }
 
 .cardImage {
     margin : 10px;
+    height: 180px;
+}
+
+.senderButton {
+    width: 120px;
+    height: 40px;
+    border: 2px;
+    border-radius: 15%;
+    background-color: grey;
+    min-height: 10em;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 25px;
 }

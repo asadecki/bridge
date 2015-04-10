@@ -11,7 +11,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-@Path("/power")
+@Path("/bidding")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class HandPowerResource {
@@ -22,6 +22,8 @@ public class HandPowerResource {
 	@GET
 	@Timed
 	public Response getBidding(@BeanParam BalanceWithPoints balance) {
-		return Response.ok().build();
+		System.out.println("elooo");
+		System.out.println(balance.toString());
+		return Response.ok(balance).build();
 	}
 }

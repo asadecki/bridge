@@ -61,4 +61,15 @@ public class BalanceWithPoints {
 	public void setPoints(Integer points) {
 		this.points = points;
 	}
+
+	@Override
+	public String toString() {
+		return "BalanceWithPoints{" +
+			"numberOfClubs=" + numberOfClubs +
+			", numberOfDiamonds=" + numberOfDiamonds +
+			", numberOfHearts=" + numberOfHearts +
+			", numberOfSpades=" + numberOfSpades +
+			", points=" + points +
+			'}';
+	}
 }

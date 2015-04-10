@@ -79,7 +79,24 @@ var CardList = React.createClass({
     }
 });
 
+var SenderButton = React.createClass({
+    render: function () {
+        return (<div id="senderButton" className='senderButton'> Solution </div>)
+    }
+});
+
+var Page = React.createClass({
+    render: function () {
+        return (
+            <div>
+                <CardBox url='cards.json' pollInterval={0} />
+                <SenderButton/>
+            </div>
+        );
+    }
+});
+
 React.render(
-    <CardBox url='http://localhost:8080/hand/NORTH' pollInterval={0} />,
-    document.getElementById('content')
+    //CardBox url='http://localhost:8080/hand/NORTH' pollInterval={0} />, document.getElementById('content')
+    <Page url='cards.json' pollInterval={0} />, document.getElementById('content')
 );

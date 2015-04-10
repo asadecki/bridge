@@ -1,4 +1,10 @@
 [
-    {"value": "KING", "color": "CLUB"},
-    {"value": "KING", "color": "CLUB"}
+    {
+        "cardValue": "KING",
+        "color": "CLUB"
+    },
+    {
+        "cardValue": "KING",
+        "color": "CLUB"
+    }
 ]
