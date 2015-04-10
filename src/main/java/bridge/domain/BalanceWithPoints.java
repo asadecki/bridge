@@ -22,6 +22,14 @@ public class BalanceWithPoints {
 	@QueryParam("points")
 	private Integer points;
 
+	public BalanceWithPoints(Integer numberOfClubs, Integer numberOfDiamonds, Integer numberOfHearts, Integer numberOfSpades, Integer points) {
+		this.numberOfClubs = numberOfClubs;
+		this.numberOfDiamonds = numberOfDiamonds;
+		this.numberOfHearts = numberOfHearts;
+		this.numberOfSpades = numberOfSpades;
+		this.points = points;
+	}
+
 	public Integer getNumberOfClubs() {
 		return numberOfClubs;
 	}

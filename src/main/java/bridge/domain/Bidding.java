@@ -5,6 +5,11 @@ public class Bidding {
 	private int level;
 	private BiddingColor biddingColor;
 
+	public Bidding(int level, BiddingColor biddingColor) {
+		this.level = level;
+		this.biddingColor = biddingColor;
+	}
+
 	public int getLevel() {
 		return level;
 	}

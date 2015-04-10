@@ -1,9 +1,11 @@
 package bridge;
 
+import bridge.bidding.BiddingProvider;
 import bridge.domain.Deck;
 import bridge.health.TemplateHealthCheck;
-import bridge.resources.HandPowerResource;
+import bridge.resources.BiddingResource;
 import bridge.resources.TableResource;
+import bridge.services.BiddingService;
 import bridge.services.TableService;
 import bridge.shuffler.ShufflerService;
 import io.dropwizard.Application;
@@ -50,16 +52,19 @@ public class BridgeApplication extends Application<BridgeConfiguration> {
 		Deck deck = new Deck();
 		Random random = new Random();
 
+		BiddingProvider biddingProvider = new BiddingProvider();
+
 		ShufflerService shufflerService = new ShufflerService(random);
 		TableService tableService = new TableService(shufflerService, deck);
+		BiddingService biddingService = new BiddingService(biddingProvider);
 
 		final TableResource tableResource = new TableResource(tableService);
-		final HandPowerResource handPowerResource = new HandPowerResource();
+		final BiddingResource biddingResource = new BiddingResource(biddingService);
 
 		final TemplateHealthCheck healthCheck = new TemplateHealthCheck();
 
 		environment.healthChecks().register("template", healthCheck);
 		environment.jersey().register(tableResource);
-		environment.jersey().register(handPowerResource);
+		environment.jersey().register(biddingResource);
 	}
 }

@@ -7,6 +7,8 @@ function setupSolutionButtonOnclickEvent () {
     }
 }
 
-(function(){
+function init() {
     setupSolutionButtonOnclickEvent();
-})();
+}
+
+init();
