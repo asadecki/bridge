@@ -6,7 +6,7 @@ import bridge.domain.BiddingColor;
 
 import java.util.Optional;
 
-public class BiddingProvider {
+public class OpeningProvider {
 
 	private static final int ALL_CARDS_IN_COLOR = 13;
 	private static final int ALL_POINTS_IN_DECK = 40;

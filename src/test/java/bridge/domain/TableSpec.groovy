@@ -10,20 +10,12 @@ class TableSpec extends Specification {
         table = new Table()
     }
 
-    def "Table should have 4 players"() {
-        when:
-        def numberOfPlayers = table.getPlayers().size()
-
-        then:
-        numberOfPlayers == 4
-    }
-
     def "Players should be properly set up"() {
         when:
-        Player player0 = table.getPlayers().get(0)
-        Player player1 = table.getPlayers().get(1)
-        Player player2 = table.getPlayers().get(2)
-        Player player3 = table.getPlayers().get(3)
+        Player player0 = table.getPlayerSouth()
+        Player player1 = table.getPlayerNorth()
+        Player player2 = table.getPlayerEast()
+        Player player3 = table.getPlayerWest()
 
         then:
 

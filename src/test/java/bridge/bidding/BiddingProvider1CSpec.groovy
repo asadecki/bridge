@@ -6,7 +6,7 @@ import spock.lang.Specification
 
 public class BiddingProvider1CSpec extends Specification{
 
-    def biddingProvider = new BiddingProvider()
+    def biddingProvider = new OpeningProvider()
 
     def setup() {
     }
@@ -21,6 +21,6 @@ public class BiddingProvider1CSpec extends Specification{
         then:
         biddings != null
         biddings.biddingColor == BiddingColor.CLUB
-        biddings.level == 3
+        biddings.level == 1
     }
 }

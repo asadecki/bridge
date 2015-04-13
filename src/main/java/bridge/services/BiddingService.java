@@ -1,6 +1,6 @@
 package bridge.services;
 
-import bridge.bidding.BiddingProvider;
+import bridge.bidding.OpeningProvider;
 import bridge.domain.BalanceWithPoints;
 import bridge.domain.Bidding;
 import bridge.domain.BiddingColor;
@@ -11,10 +11,10 @@ import java.util.Optional;
 
 public class BiddingService {
 
-	private BiddingProvider biddingProvider;
+	private OpeningProvider openingProvider;
 
-	public BiddingService(BiddingProvider biddingProvider) {
-		this.biddingProvider = biddingProvider;
+	public BiddingService(OpeningProvider openingProvider) {
+		this.openingProvider = openingProvider;
 	}
 
 	public List<Bidding> getBiddings(BalanceWithPoints balance) {
@@ -29,11 +29,11 @@ public class BiddingService {
 	}
 
 	private void add1LevelBiddings(BalanceWithPoints balance, List<Bidding> biddings) {
-		addBidding(biddings, biddingProvider.c1(balance));
-		addBidding(biddings, biddingProvider.d1(balance));
-		addBidding(biddings, biddingProvider.h1(balance));
-		addBidding(biddings, biddingProvider.s1(balance));
-		addBidding(biddings, biddingProvider.nt1(balance));
+		addBidding(biddings, openingProvider.c1(balance));
+		addBidding(biddings, openingProvider.d1(balance));
+		addBidding(biddings, openingProvider.h1(balance));
+		addBidding(biddings, openingProvider.s1(balance));
+		addBidding(biddings, openingProvider.nt1(balance));
 	}
 
 	private void addBidding(List<Bidding> biddings, Optional<Bidding> optionalBidding) {

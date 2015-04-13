@@ -2,7 +2,6 @@ package bridge.services;
 
 import bridge.domain.Deck;
 import bridge.domain.Hand;
-import bridge.domain.PlayerPlace;
 import bridge.domain.Table;
 import bridge.shuffler.ShufflerService;
 
@@ -21,11 +20,17 @@ public class TableService {
 	}
 
 	public Hand getHand(String playerName) {
-		return shufflerService.shuffle(deck).getPlayers()
-			.stream()
-			.filter(player -> player.getName().equals(PlayerPlace.valueOf(playerName)))
-			.findFirst()
-			.get()
-			.getHand();
+
+		if (playerName.equals("SOUTH")) {
+			return shufflerService.shuffle(deck).getPlayerSouth().getHand();
+		} else if (playerName.equals("NORTH")) {
+			return shufflerService.shuffle(deck).getPlayerNorth().getHand();
+		} else if (playerName.equals("WEST")) {
+			return shufflerService.shuffle(deck).getPlayerWest().getHand();
+		} else if (playerName.equals("SOUTH")) {
+			return shufflerService.shuffle(deck).getPlayerEast().getHand();
+		}
+
+		return new Hand();
 	}
 }

@@ -4,16 +4,13 @@ import bridge.domain.Deck
 import spock.lang.Ignore
 import spock.lang.Specification
 
-@Ignore
 class ShufflerSpec extends Specification {
 
     ShufflerService shuffler
     Deck deck
-    Random random
 
     def setup() {
-        random = new Random()
-        shuffler = new ShuffleAndDivideService(random)
+        shuffler = new ShuffleAndDivideService()
         deck = new Deck()
 
     }
@@ -22,10 +19,10 @@ class ShufflerSpec extends Specification {
         when:
         def table = shuffler.shuffle(deck)
 
-        def playerNorth = table.players.get(0)
-        def playerSouth = table.players.get(1)
-        def playerEast = table.players.get(2)
-        def playerWest = table.players.get(3)
+        def playerNorth = table.getPlayerNorth()
+        def playerSouth = table.getPlayerSouth()
+        def playerEast = table.getPlayerEast()
+        def playerWest = table.getPlayerWest()
 
         def cardsNorth = playerNorth.getHand().getCards()
         def cardsSouth = playerSouth.getHand().getCards()

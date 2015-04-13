@@ -1,13 +1,12 @@
 package bridge;
 
-import bridge.bidding.BiddingProvider;
+import bridge.bidding.OpeningProvider;
 import bridge.domain.Deck;
 import bridge.health.TemplateHealthCheck;
 import bridge.resources.BiddingResource;
 import bridge.resources.TableResource;
 import bridge.services.BiddingService;
 import bridge.services.TableService;
-import bridge.shuffler.ShittyShufflerService;
 import bridge.shuffler.ShuffleAndDivideService;
 import bridge.shuffler.ShufflerService;
 import io.dropwizard.Application;
@@ -54,11 +53,11 @@ public class BridgeApplication extends Application<BridgeConfiguration> {
 		Deck deck = new Deck();
 		Random random = new Random();
 
-		BiddingProvider biddingProvider = new BiddingProvider();
+		OpeningProvider openingProvider = new OpeningProvider();
 
 		ShufflerService shufflerService = new ShuffleAndDivideService();
 		TableService tableService = new TableService(shufflerService, deck);
-		BiddingService biddingService = new BiddingService(biddingProvider);
+		BiddingService biddingService = new BiddingService(openingProvider);
 
 		final TableResource tableResource = new TableResource(tableService);
 		final BiddingResource biddingResource = new BiddingResource(biddingService);

@@ -42,16 +42,30 @@ var CardBox = React.createClass({
         });
     },
     getInitialState: function () {
-        return {data: []};
+        return {
+            data: {
+                playerSouth: {
+                    name: "SOUTH",
+                    hand: {
+                        cards: []
+                    }
+                }, playerNorth: {
+                    name: "NORTH",
+                    hand: {
+                        cards: []
+                    }
+                }
+            }
+        };
     },
     componentDidMount: function () {
         this.loadCardsFromServer();
-        // setInterval(this.loadCardsFromServer, this.props.pollInterval);
     },
     render: function () {
         return (
             <div>
-                <CardList data={this.state.data} />
+                <CardList data={this.state.data.playerNorth} />
+                <CardList data={this.state.data.playerSouth} />
             </div>
             );
     }
@@ -59,10 +73,11 @@ var CardBox = React.createClass({
 
 var CardList = React.createClass({
     render: function () {
-        var cardNodes = this.props.data.map(function (card, index) {
+
+        var cardNodes = this.props.data.hand.cards.map(function (card, index) {
             return ( <Card cardValue={card.cardValue} color={card.color} key={index}> xxx</Card> );
         });
-        return ( <div className='hand'> {cardNodes} </div> );
+        return ( <div className='hand' data-player-name={this.props.data.name}> {cardNodes} </div> );
     }
 });
 
@@ -94,5 +109,5 @@ var Solutions = React.createClass({
 });
 
 React.render(
-    <Page url='http://localhost:8080/hand/NORTH' pollInterval={0} />, document.getElementById('content')
+    <Page url='http://localhost:8080/hand' pollInterval={0} />, document.getElementById('content')
 );

@@ -3,7 +3,6 @@ package bridge.shuffler;
 import bridge.domain.Card;
 import bridge.domain.Deck;
 import bridge.domain.Hand;
-import bridge.domain.Player;
 import bridge.domain.Table;
 
 import java.util.Collections;
@@ -25,15 +24,19 @@ public class ShuffleAndDivideService implements ShufflerService {
 
 	private void createHandForPlayers(Deck deck, Table table) {
 
-		int start = 0;
-		for (Player player : table.getPlayers()) {
-			player.setHand(new Hand(deck.getCards().subList(0, start + 13)
-				.stream()
-				.sorted(comparing(Card::getCardValue))
-				.sorted(comparing(Card::getColor))
-				.collect(Collectors.toList())
-			));
-			start += 13;
-		}
+		table.getPlayerSouth().setHand(buildHand(deck, 0, 13));
+		table.getPlayerNorth().setHand(buildHand(deck, 13, 26));
+		table.getPlayerWest().setHand(buildHand(deck, 26, 39));
+		table.getPlayerEast().setHand(buildHand(deck, 39, 52));
+
+	}
+
+	private Hand buildHand(Deck deck, int start, int end) {
+		return new Hand(deck.getCards()
+			.subList(start, end)
+			.stream()
+			.sorted(comparing(Card::getCardValue))
+			.sorted(comparing(Card::getColor))
+			.collect(Collectors.toList()));
 	}
 }
