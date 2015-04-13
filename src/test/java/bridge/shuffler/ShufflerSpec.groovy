@@ -7,13 +7,13 @@ import spock.lang.Specification
 @Ignore
 class ShufflerSpec extends Specification {
 
-    ShittyShufflerService shuffler
+    ShufflerService shuffler
     Deck deck
     Random random
 
     def setup() {
         random = new Random()
-        shuffler = new ShittyShufflerService(random)
+        shuffler = new ShuffleAndDivideService(random)
         deck = new Deck()
 
     }

@@ -14,9 +14,11 @@ var cardShortcut = {
     'ACE': 1
 };
 
+
 var Card = React.createClass({
     render: function () {
-        return ( <img className="cardImage" src={"images/" + this.colorShortcut(this.props.color) + cardShortcut[this.props.cardValue] + ".gif"}/> );
+        return ( <img className="cardImage" src={"images/" + this.colorShortcut(this.props.color) + cardShortcut[this.props.cardValue] + ".gif"}
+        data-card-value={cardShortcut[this.props.cardValue]} data-card-color={this.colorShortcut(this.props.color)} />);
     },
 
     colorShortcut: function (color) {

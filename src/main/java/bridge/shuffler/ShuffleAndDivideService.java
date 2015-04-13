@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 import static java.util.Comparator.comparing;
 
 public class ShuffleAndDivideService implements ShufflerService {
-	
+
 	@Override
 	public Table shuffle(Deck deck) {
 		Table table = new Table();
