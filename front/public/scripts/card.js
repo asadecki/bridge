@@ -32,12 +32,7 @@ var CardBox = React.createClass({
             success: function (data) {
                 this.setState({data: data});
                 var $element = $('.cardImage');
-                $element.each(function(index, item) {
-                    console.log(item);
-                });
                 setupSolutionButtonOnclickEvent();
-                console.log($element);
-                // TODO move it somewhere !
             }.bind(this),
             error: function (xhr, status, err) {
                 console.error(this.props.url, status, err.toString());
@@ -81,6 +76,16 @@ var Page = React.createClass({
             <div>
                 <CardBox url={this.props.url} pollInterval={0} />
                 <SenderButton/>
+                <Solutions/>
+            </div>
+            );
+    }
+});
+
+var Solutions = React.createClass({
+    render: function () {
+        return (
+            <div id="solutions">
             </div>
             );
     }

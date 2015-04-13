@@ -4,14 +4,14 @@ import bridge.domain.BalanceWithPoints
 import bridge.domain.BiddingColor
 import spock.lang.Specification
 
-public class BiddingProviderSpec extends Specification{
+public class BiddingProvider1CSpec extends Specification{
 
     def biddingProvider = new BiddingProvider()
 
     def setup() {
     }
 
-    def "should return biddings for 4-3-2-3 with 13 points"() {
+    def "should return bidding 1C for 4-3-2-3 with 13 points"() {
         setup:
         def balance = new BalanceWithPoints(4, 3, 2, 3, 13)
 
