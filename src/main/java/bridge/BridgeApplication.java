@@ -7,6 +7,8 @@ import bridge.resources.BiddingResource;
 import bridge.resources.TableResource;
 import bridge.services.BiddingService;
 import bridge.services.TableService;
+import bridge.shuffler.ShittyShufflerService;
+import bridge.shuffler.ShuffleAndDivideService;
 import bridge.shuffler.ShufflerService;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
@@ -54,7 +56,7 @@ public class BridgeApplication extends Application<BridgeConfiguration> {
 
 		BiddingProvider biddingProvider = new BiddingProvider();
 
-		ShufflerService shufflerService = new ShufflerService(random);
+		ShufflerService shufflerService = new ShuffleAndDivideService();
 		TableService tableService = new TableService(shufflerService, deck);
 		BiddingService biddingService = new BiddingService(biddingProvider);
 

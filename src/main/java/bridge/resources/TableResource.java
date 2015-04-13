@@ -1,11 +1,8 @@
 package bridge.resources;
 
 import bridge.domain.Card;
-import bridge.domain.Deck;
-import bridge.domain.PlayerPlace;
 import bridge.domain.Table;
 import bridge.services.TableService;
-import bridge.shuffler.ShufflerService;
 import com.codahale.metrics.annotation.Timed;
 
 import javax.ws.rs.GET;
