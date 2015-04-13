@@ -18,7 +18,7 @@ function setupSolutionButtonOnclickEvent() {
             var $solutions = $("#solutions");
             $solutions.empty();
             data.forEach(function (item) {
-                $solutions.append("<p>" + item.level + " " + item.biddingColor + "</p>");
+                $solutions.append("<p>" + (item.level == 0 ? "" : item.level) + " " + item.biddingColor + "</p>");
             });
         });
     }
