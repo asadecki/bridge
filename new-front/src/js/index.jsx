@@ -1,4 +1,4 @@
 const React = require('react');
-const App = require('./components/App.jsx');
+const Page = require('./components/Page.jsx');
 
-React.render(<App />, document.getElementById('main'));
+React.render(<Page url='http://localhost:8080/hand'/>, document.getElementById('main'));
