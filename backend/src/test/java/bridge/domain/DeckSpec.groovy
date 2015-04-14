@@ -1,7 +1,7 @@
 package bridge.domain
 
-import CardColor
-import Deck
+import bridge.domain.CardColor
+import bridge.domain.Deck
 import spock.lang.Specification
 
 class DeckSpec extends Specification {

@@ -1,7 +1,7 @@
 package bridge.bidding
 
-import BalanceWithPoints
-import BiddingColor
+import bridge.domain.BalanceWithPoints
+import bridge.domain.BiddingColor
 import spock.lang.Specification
 
 public class BiddingProvider1CSpec extends Specification{

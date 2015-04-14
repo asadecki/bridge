@@ -1,9 +1,9 @@
 package bridge.counter
 
-import Card
-import CardColor
-import CardValue
-import Hand
+import bridge.domain.Card
+import bridge.domain.CardColor
+import bridge.domain.CardValue
+import bridge.domain.Hand
 import spock.lang.Specification
 
 class HandPointsCounterSpec extends Specification {
