@@ -1,4 +1,4 @@
 const React = require('react');
-const Page = require('./components/Page.jsx');
+const CardBox = require('./components/CardBox.jsx');
 
-React.render(<Page url='http://localhost:8080/hand'/>, document.getElementById('main'));
+React.render(<CardBox/>, document.getElementById('main'));

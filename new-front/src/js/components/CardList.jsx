@@ -2,24 +2,19 @@ const React = require('react');
 const Card = require('./Card.jsx');
 
 let CardList = React.createClass({
+  	getDefaultProps() {
+    	return {
+      		cards: []
+    	};
+  	},
 
-   	getInitialState: function () {
-	   	return {
-		   	data: {
-		   		hand : {
-					cards: []
-				},
-				name : 'yeaahhhhhhh'
-		   	}
-	   	};
-   	},
-	render: function () {
+  	render() {
+    	let {cards} = this.props;
 
-	   	var cardNodes = this.props.data.hand.cards.map(function (card, index) {
-		   	return ( <Card cardValue={card.cardValue} color={card.color} key={index}></Card> );
-	   	});
-	   	return ( <div data-player-name={this.props.data.name}> {cardNodes} </div> );
-   	}
+    	return (
+              <div> {cards.map(card =>  <Card card={card} /> )} </div>
+        );
+  	}
 });
 
 module.exports = CardList;

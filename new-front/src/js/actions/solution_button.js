@@ -1,5 +1,5 @@
 // TODO remove this file - put this functions in proper place
-
+/*
 var cardValues = {
     'j': 1,
     'q': 2,
@@ -66,3 +66,4 @@ function prepareDataMapForGet(pointsSum, colors) {
         numberOfSpades: colors["S"]
     };
 }
+*/
