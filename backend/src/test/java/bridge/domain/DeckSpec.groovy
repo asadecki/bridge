@@ -1,7 +1,7 @@
-package bridge.counter
+package bridge.domain
 
-import bridge.domain.CardColor
-import bridge.domain.Deck
+import CardColor
+import Deck
 import spock.lang.Specification
 
 class DeckSpec extends Specification {

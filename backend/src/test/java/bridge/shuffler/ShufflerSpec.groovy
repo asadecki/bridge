@@ -1,7 +1,6 @@
 package bridge.shuffler
 
-import bridge.domain.Deck
-import spock.lang.Ignore
+import Deck
 import spock.lang.Specification
 
 class ShufflerSpec extends Specification {
