@@ -13,16 +13,49 @@ module.exports = {
                 this.cards = data;
             }.bind(this),
             error: function (xhr, status, err) {
-                console.error('blah');
                 this.cards = {
                     playerNorth: {
                         hand: {
-                            cards : [{color: 'CLUB', cardValue: 'KING'}]
+                            cards: [
+                                {color: 'SPADE', cardValue: 'ACE'},
+                                {color: 'SPADE', cardValue: 'ACE'},
+                                {color: 'SPADE', cardValue: 'ACE'},
+                                {color: 'SPADE', cardValue: 'ACE'},
+                                {color: 'SPADE', cardValue: 'ACE'},
+                                {color: 'SPADE', cardValue: 'ACE'},
+                                {color: 'SPADE', cardValue: 'ACE'},
+                                {color: 'SPADE', cardValue: 'ACE'},
+                                {color: 'SPADE', cardValue: 'ACE'},
+                                {color: 'SPADE', cardValue: 'ACE'},
+                                {color: 'SPADE', cardValue: 'ACE'},
+                                {color: 'SPADE', cardValue: 'ACE'},
+                                {color: 'SPADE', cardValue: 'ACE'}
+                            ]
+                        }
+                    },
+                    playerSouth: {
+                        hand: {
+                            cards: [
+                                {color: 'SPADE', cardValue: 'ACE'},
+                                {color: 'SPADE', cardValue: 'ACE'},
+                                {color: 'SPADE', cardValue: 'ACE'},
+                                {color: 'SPADE', cardValue: 'ACE'},
+                                {color: 'SPADE', cardValue: 'ACE'},
+                                {color: 'SPADE', cardValue: 'ACE'},
+                                {color: 'SPADE', cardValue: 'ACE'},
+                                {color: 'SPADE', cardValue: 'ACE'},
+                                {color: 'SPADE', cardValue: 'ACE'},
+                                {color: 'SPADE', cardValue: 'ACE'},
+                                {color: 'SPADE', cardValue: 'ACE'},
+                                {color: 'SPADE', cardValue: 'ACE'},
+                                {color: 'SPADE', cardValue: 'ACE'}
+                            ]
                         }
                     }
                 };
             }.bind(this)
         });
+
         AppDispatcher.handleViewAction({
                 type: Constants.ActionTypes.FETCH_ALL_CARDS,
                 cards: this.cards

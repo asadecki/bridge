@@ -23,9 +23,8 @@ let CardStore = assign({}, BaseStore, {
         switch (action.type) {
 
             case Constants.ActionTypes.FETCH_ALL_CARDS:
-                let cards = action.cards.playerNorth.hand.cards;
+                let cards = action.cards;
                 setData(cards);
-                console.log(CardStore.getAllCards());
                 CardStore.emitChange();
 
                 break;
