@@ -4,6 +4,7 @@ const CardActionFetcher = require('../actions/CardActionFetcher');
 const Button = require('react-bootstrap/lib/Button');
 const Panel = require('react-bootstrap/lib/Panel');
 const CardList = require('./CardList.jsx');
+const BiddingList = require('./BiddingList.jsx');
 
 let App = React.createClass({
 
@@ -44,9 +45,17 @@ let App = React.createClass({
 				<Panel header="NORTH" bsStyle='primary'>
 					<CardList cards={cards.playerNorth.hand.cards} />
 				</Panel>
+
+				<BiddingList>
+                </BiddingList>
+
 				<Panel>
 					<Button className="getCardsButton" onClick={this.handleGetCardsClick} bsStyle='primary' bsSize='large'>Get cards</Button>
 				</Panel>
+
+				<BiddingList>
+				</BiddingList>
+
 				<Panel header="SOUTH" bsStyle='primary'>
 					<CardList cards={cards.playerSouth.hand.cards} />
 				</Panel>
