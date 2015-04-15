@@ -4,6 +4,7 @@ module.exports = {
 
     ActionTypes: keyMirror({
         FETCH_ALL_CARDS: null,
+        GET_BIDDING: null,
         ADD_TASK: null
     }),
 

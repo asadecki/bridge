@@ -5,13 +5,13 @@ const assign = require('object-assign');
 
 let _data = [];
 
-function setData(cards) {
-    _data = cards;
+function setData(biddings) {
+    _data = biddings;
 }
 
-let CardStore = assign({}, BaseStore, {
+let BiddingStore = assign({}, BaseStore, {
 
-    getAllCards() {
+    getBiddings() {
         return {
             cards: _data
         };
@@ -19,18 +19,18 @@ let CardStore = assign({}, BaseStore, {
 
     dispatcherIndex: AppDispatcher.register(function (payload) {
         let action = payload.action;
-        console.log('am i here?');
+
+        console.log('elllooo');
         switch (action.type) {
 
-            case Constants.ActionTypes.FETCH_ALL_CARDS:
-                let cards = action.cards;
-                setData(cards);
-                CardStore.emitChange();
-
+            case Constants.ActionTypes.GET_BIDDING:
+                let biddings = action.biddings;
+                setData(biddings);
+                BiddingStore.emitChange();
+                console.log(biddings);
                 break;
-
         }
     })
 });
 
-module.exports = CardStore;
+module.exports = BiddingStore;
