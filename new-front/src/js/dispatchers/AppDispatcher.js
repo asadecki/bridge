@@ -13,13 +13,10 @@ let AppDispatcher = assign(new Dispatcher(), {
     },
 
     handleViewAction(action) {
-        console.log('handle view dispatcher');
-        console.log(action);
         let payload = {
             source: Constants.ActionSources.VIEW_ACTION,
             action: action
         };
-        console.log(payload);
         this.dispatch(payload);
     }
 });

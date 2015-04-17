@@ -19,7 +19,6 @@ let CardStore = assign({}, BaseStore, {
 
     dispatcherIndex: AppDispatcher.register(function (payload) {
         let action = payload.action;
-        console.log('am i here?');
         switch (action.type) {
 
             case Constants.ActionTypes.FETCH_ALL_CARDS:

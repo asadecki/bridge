@@ -2,36 +2,40 @@ var AppDispatcher = require('../dispatchers/AppDispatcher');
 var Constants = require('../constants/AppConstants');
 
 let cardValues = {
-    'j': 1,
-    'q': 2,
-    'k': 3,
-    '1': 4 // ace
+    'JACK': 1,
+    'QUEEN': 2,
+    'KING': 3,
+    'ACE': 4 // ace
 };
 
 module.exports = {
 
-    getBidding: function () {
+    getBidding: function (event) {
+        var $playerPanel = event.target.closest(".player-panel");
+        var $images = $playerPanel.querySelectorAll("img");
+        var imagesArray  = [].slice.call($images);
 
-        console.log('BiddingActionGetter works');
-        var $images = $("img");
-        var colors = this.getCardsInColorMap($images);
-        var pointsSum = this.getPointsSum($images);
-        console.log('xxx');
-        console.log(colors);
-        console.log(pointsSum);
-        console.log('xxx');
+        var colors = this.getCardsInColorMap(imagesArray);
+        var pointsSum = this.getPointsSum(imagesArray);
 
-        $.get("http://localhost:8080/bidding", this.prepareDataMapForGet(pointsSum, colors), function (data) {
-            data.forEach(function (item) {
-                console.log(item.level + " " + item.biddingColor);
-            });
+        $.ajax({
+            url: 'http://localhost:8080/bidding',
+            dataType: 'json',
+            data: this.prepareDataMapForGet(pointsSum, colors),
+            async: false,
+            success: function (data) {
+                // FIXME only one bidding should be returned
+                this.biddings = data[0];
+            }.bind(this),
+            error: function (xhr, status, err) {
+            }.bind(this)
         });
 
-        //this.biddings = ['1c', '2s'];
 
         AppDispatcher.handleViewAction({
             type: Constants.ActionTypes.GET_BIDDING,
-            biddings: this.biddings
+            biddings: this.biddings,
+            player: event.target.id.replace("bidding-list-", "")
         });
     },
 
@@ -44,7 +48,7 @@ module.exports = {
             'S': 0
         };
 
-        images.each(function (index, item) {
+        images.forEach(function (item) {
             colors[item.getAttribute("data-card-color")]++;
         });
 
@@ -53,13 +57,13 @@ module.exports = {
 
     getPointsSum: function (images) {
 
-        var points = images.map(function (index, item) {
+        var points = images.map(function (item) {
             var cardPoints = cardValues[item.getAttribute("data-card-value")] || 0;
             return cardPoints;
         });
 
         var pointsSum = 0;
-        points.each(function (index, cardPoints) {
+        points.forEach(function (cardPoints) {
             pointsSum += cardPoints
         });
 

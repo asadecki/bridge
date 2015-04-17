@@ -3,31 +3,30 @@ const Constants = require('../constants/AppConstants');
 const BaseStore = require('./BaseStore');
 const assign = require('object-assign');
 
-let _data = [];
+let _data = {north: [], south: []};
 
-function setData(biddings) {
-    _data = biddings;
+function addBidding(bidding, player) {
+    _data[player].push(bidding);
 }
 
 let BiddingStore = assign({}, BaseStore, {
 
     getBiddings() {
         return {
-            cards: _data
+            biddings: _data
         };
     },
 
     dispatcherIndex: AppDispatcher.register(function (payload) {
         let action = payload.action;
 
-        console.log('elllooo');
         switch (action.type) {
 
             case Constants.ActionTypes.GET_BIDDING:
                 let biddings = action.biddings;
-                setData(biddings);
+                let player = action.player;
+                addBidding(biddings, player);
                 BiddingStore.emitChange();
-                console.log(biddings);
                 break;
         }
     })

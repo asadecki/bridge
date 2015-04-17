@@ -21,9 +21,8 @@ let BiddingList = React.createClass({
 		BiddingStore.addChangeListener(this._onChange);
 	},
 
-	  	handleBiddingClick(e) {
-      		console.log('handle method in jsx');
-    		BiddingActionGetter.getBidding();
+	handleBiddingClick(e) {
+		BiddingActionGetter.getBidding(e);
 	},
 
   	render() {
@@ -31,9 +30,7 @@ let BiddingList = React.createClass({
     	return (
     		<div>
     			<Button bsStyle='info' onClick={this.handleBiddingClick} id={this.props.biddingBtnId}>Bidding</Button>
-		  		<ListGroup>
-              		<ListGroupItem>Fake bidding 1</ListGroupItem>
-				</ListGroup>
+              	{biddings[this.props.player]}
 			</div>
         );
   	}
