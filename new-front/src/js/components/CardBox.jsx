@@ -46,14 +46,14 @@ let App = React.createClass({
 					<CardList cards={cards.playerNorth.hand.cards} />
 				</Panel>
 
-				<BiddingList>
+				<BiddingList biddingBtnId="bidding-list-north">
                 </BiddingList>
 
 				<Panel>
 					<Button className="getCardsButton" onClick={this.handleGetCardsClick} bsStyle='primary' bsSize='large'>Get cards</Button>
 				</Panel>
 
-				<BiddingList>
+				<BiddingList biddingBtnId-id="bidding-list-south">
 				</BiddingList>
 
 				<Panel header="SOUTH" bsStyle='primary'>

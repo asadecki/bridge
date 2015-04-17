@@ -28,10 +28,9 @@ let BiddingList = React.createClass({
 
   	render() {
     	let {biddings} = this.state;
-
     	return (
     		<div>
-    			<Button bsStyle='info' onClick={this.handleBiddingClick}>Bidding</Button>
+    			<Button bsStyle='info' onClick={this.handleBiddingClick} id={this.props.biddingBtnId}>Bidding</Button>
 		  		<ListGroup>
               		<ListGroupItem>Fake bidding 1</ListGroupItem>
 				</ListGroup>
