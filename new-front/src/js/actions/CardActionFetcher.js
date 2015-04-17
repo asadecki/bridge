@@ -61,14 +61,6 @@ module.exports = {
                 cards: this.cards
             }
         );
-    },
-
-    clearList: function () {
-        console.warn('clearList action not yet implemented...');
-    },
-
-    completeTask: function (task) {
-        console.warn('completeTask action not yet implemented...');
     }
-}
-;
+};
+
