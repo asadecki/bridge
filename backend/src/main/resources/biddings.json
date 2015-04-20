@@ -1,0 +1,157 @@
+{
+    "convention": "",
+    "conventionName": "",
+    "type": "",
+    "answers": [
+        {
+            "convention": "1c",
+            "conventionName": "Polish Club",
+            "type": "Opening",
+            "conditions": [
+                {
+                    "description": "12-14 points. Balanced hand.",
+                    "clubs": {
+                        "min": 0,
+                        "max": 13
+                    },
+                    "diamonds": {
+                        "min": 0,
+                        "max": 4
+                    },
+                    "hearts": {
+                        "min": 0,
+                        "max": 4
+                    },
+                    "spades": {
+                        "min": 0,
+                        "max": 4
+                    },
+                    "points": {
+                        "min": 12,
+                        "max": 14
+                    }
+                }
+            ]
+        },
+        {
+            "convention": "1d",
+            "conventionName": "",
+            "type": "Opening",
+            "conditions": [
+                {
+                    "description": "12-17 points. Min 5 diamonds. Max 4 clubs, hearts and spades",
+                    "clubs": {
+                        "min": 0,
+                        "max": 4
+                    },
+                    "diamonds": {
+                        "min": 5,
+                        "max": 13
+                    },
+                    "hearts": {
+                        "min": 0,
+                        "max": 4
+                    },
+                    "spades": {
+                        "min": 0,
+                        "max": 4
+                    },
+                    "points": {
+                        "min": 12,
+                        "max": 17
+                    }
+                }
+            ]
+        },
+        {
+            "convention": "1h",
+            "conventionName": "",
+            "type": "Opening",
+            "conditions": [
+                {
+                    "description": "12-17 points. Min 5 hearts.",
+                    "clubs": {
+                        "min": 0,
+                        "max": 13
+                    },
+                    "diamonds": {
+                        "min": 0,
+                        "max": 13
+                    },
+                    "hearts": {
+                        "min": 5,
+                        "max": 13
+                    },
+                    "spades": {
+                        "min": 0,
+                        "max": 13
+                    },
+                    "points": {
+                        "min": 12,
+                        "max": 17
+                    }
+                }
+            ]
+        },
+        {
+            "convention": "1s",
+            "conventionName": "",
+            "type": "Opening",
+            "conditions": [
+                {
+                    "description": "12-17 points. Min 5 spades.",
+                    "clubs": {
+                        "min": 0,
+                        "max": 13
+                    },
+                    "diamonds": {
+                        "min": 0,
+                        "max": 13
+                    },
+                    "hearts": {
+                        "min": 0,
+                        "max": 13
+                    },
+                    "spades": {
+                        "min": 5,
+                        "max": 13
+                    },
+                    "points": {
+                        "min": 12,
+                        "max": 17
+                    }
+                }
+            ]
+        },
+        {
+            "convention": "1nt",
+            "conventionName": "",
+            "type": "Opening",
+            "conditions": [
+                {
+                    "description": "15-17 points. Balanced.",
+                    "clubs": {
+                        "min": 1,
+                        "max": 4
+                    },
+                    "diamonds": {
+                        "min": 1,
+                        "max": 4
+                    },
+                    "hearts": {
+                        "min": 1,
+                        "max": 4
+                    },
+                    "spades": {
+                        "min": 1,
+                        "max": 4
+                    },
+                    "points": {
+                        "min": 15,
+                        "max": 17
+                    }
+                }
+            ]
+        }
+    ]
+}

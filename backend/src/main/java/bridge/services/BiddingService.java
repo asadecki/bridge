@@ -1,46 +1,20 @@
 package bridge.services;
 
-import bridge.bidding.OpeningProvider;
+import bridge.bidding.BiddingProvider;
 import bridge.domain.BalanceWithPoints;
 import bridge.domain.Bidding;
-import bridge.domain.BiddingColor;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 public class BiddingService {
 
-	private OpeningProvider openingProvider;
+	private BiddingProvider biddingProvider;
 
-	public BiddingService(OpeningProvider openingProvider) {
-		this.openingProvider = openingProvider;
+	public BiddingService(BiddingProvider biddingProvider) {
+		this.biddingProvider = biddingProvider;
 	}
 
 	public List<Bidding> getBiddings(BalanceWithPoints balance) {
-		List<Bidding> biddings = new ArrayList<>();
-
-		add1LevelBiddings(balance, biddings);
-
-		if (biddings.isEmpty()) {
-			biddings.add(new Bidding(0, BiddingColor.PAS));
-		}
-		return biddings;
+		return biddingProvider.getBiddings(balance);
 	}
-
-	private void add1LevelBiddings(BalanceWithPoints balance, List<Bidding> biddings) {
-		addBidding(biddings, openingProvider.c1(balance));
-		addBidding(biddings, openingProvider.d1(balance));
-		addBidding(biddings, openingProvider.h1(balance));
-		addBidding(biddings, openingProvider.s1(balance));
-		addBidding(biddings, openingProvider.nt1(balance));
-	}
-
-	private void addBidding(List<Bidding> biddings, Optional<Bidding> optionalBidding) {
-		if (optionalBidding.isPresent()) {
-			biddings.add(optionalBidding.get());
-		}
-	}
-
-
 }

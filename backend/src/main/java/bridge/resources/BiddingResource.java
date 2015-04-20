@@ -2,8 +2,10 @@ package bridge.resources;
 
 import bridge.domain.BalanceWithPoints;
 import bridge.domain.Bidding;
+import bridge.domain.BiddingFullInfo;
 import bridge.services.BiddingService;
 import com.codahale.metrics.annotation.Timed;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import javax.ws.rs.BeanParam;
 import javax.ws.rs.Consumes;
@@ -12,6 +14,9 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @Path("/bidding")

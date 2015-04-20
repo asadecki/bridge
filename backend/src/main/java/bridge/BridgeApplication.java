@@ -1,6 +1,6 @@
 package bridge;
 
-import bridge.bidding.OpeningProvider;
+import bridge.bidding.BiddingProvider;
 import bridge.domain.Deck;
 import bridge.health.TemplateHealthCheck;
 import bridge.resources.BiddingResource;
@@ -53,11 +53,11 @@ public class BridgeApplication extends Application<BridgeConfiguration> {
 		Deck deck = new Deck();
 		Random random = new Random();
 
-		OpeningProvider openingProvider = new OpeningProvider();
+		BiddingProvider biddingProvider = new BiddingProvider();
 
 		ShufflerService shufflerService = new ShuffleAndDivideService();
 		TableService tableService = new TableService(shufflerService, deck);
-		BiddingService biddingService = new BiddingService(openingProvider);
+		BiddingService biddingService = new BiddingService(biddingProvider);
 
 		final TableResource tableResource = new TableResource(tableService);
 		final BiddingResource biddingResource = new BiddingResource(biddingService);

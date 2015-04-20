@@ -6,7 +6,7 @@ import spock.lang.Specification
 
 public class BiddingProvider1CSpec extends Specification{
 
-    def biddingProvider = new OpeningProvider()
+    def biddingProvider = new BiddingProvider()
 
     def setup() {
     }
