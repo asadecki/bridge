@@ -5,7 +5,7 @@ public class Condition {
 	private String description;
 	private Limit clubs;
 	private Limit diamonds;
-	private Limit hearts;
+	private Limit hearths;
 	private Limit spades;
 	private Limit points;
 
@@ -36,12 +36,12 @@ public class Condition {
 		this.diamonds = diamonds;
 	}
 
-	public Limit getHearts() {
-		return hearts;
+	public Limit getHearths() {
+		return hearths;
 	}
 
-	public void setHearts(Limit hearths) {
-		this.hearts = hearths;
+	public void setHearths(Limit hearths) {
+		this.hearths = hearths;
 	}
 
 	public Limit getSpades() {

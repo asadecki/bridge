@@ -20,7 +20,7 @@ public class BiddingProvider1CSpec extends Specification{
 
         then:
         biddings != null
-        biddings.biddingColor == BiddingColor.CLUB
+        biddings.biddingColor == BiddingColor.CLUBS
         biddings.level == 1
     }
 }

@@ -4,8 +4,7 @@ import java.util.List;
 
 public class BiddingFullInfo {
 
-
-	private String convention;
+	private Bidding convention;
 	private String conventionName;
 	private String type;
 	private List<Condition> conditions;
@@ -14,11 +13,11 @@ public class BiddingFullInfo {
 	public BiddingFullInfo() {
 	}
 
-	public String getConvention() {
+	public Bidding getConvention() {
 		return convention;
 	}
 
-	public void setConvention(String convention) {
+	public void setConvention(Bidding convention) {
 		this.convention = convention;
 	}
 

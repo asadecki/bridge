@@ -10,6 +10,9 @@ public class Bidding {
 		this.biddingColor = biddingColor;
 	}
 
+	public Bidding() {
+	}
+
 	public int getLevel() {
 		return level;
 	}

@@ -5,6 +5,7 @@ import bridge.domain.BalanceWithPoints;
 import bridge.domain.Bidding;
 
 import java.util.List;
+import java.util.Optional;
 
 public class BiddingService {
 

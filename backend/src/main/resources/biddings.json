@@ -1,10 +1,16 @@
 {
-    "convention": "",
+    "convention": {
+        "level": 0,
+        "biddingColor": "PAS"
+    },
     "conventionName": "",
     "type": "",
     "answers": [
         {
-            "convention": "1c",
+            "convention": {
+                "level": 1,
+                "biddingColor": "CLUBS"
+            },
             "conventionName": "Polish Club",
             "type": "Opening",
             "conditions": [
@@ -18,7 +24,7 @@
                         "min": 0,
                         "max": 4
                     },
-                    "hearts": {
+                    "hearths": {
                         "min": 0,
                         "max": 4
                     },
@@ -30,16 +36,65 @@
                         "min": 12,
                         "max": 14
                     }
+                },
+                {
+                    "description": "15-17 points. With clubs.",
+                    "clubs": {
+                        "min": 5,
+                        "max": 13
+                    },
+                    "diamonds": {
+                        "min": 0,
+                        "max": 13
+                    },
+                    "hearths": {
+                        "min": 0,
+                        "max": 13
+                    },
+                    "spades": {
+                        "min": 0,
+                        "max": 13
+                    },
+                    "points": {
+                        "min": 15,
+                        "max": 17
+                    }
+                },
+                {
+                    "description": "18+ points. ",
+                    "clubs": {
+                        "min": 0,
+                        "max": 13
+                    },
+                    "diamonds": {
+                        "min": 0,
+                        "max": 13
+                    },
+                    "hearths": {
+                        "min": 0,
+                        "max": 13
+                    },
+                    "spades": {
+                        "min": 0,
+                        "max": 13
+                    },
+                    "points": {
+                        "min": 18,
+                        "max": 40
+                    }
                 }
             ]
         },
         {
-            "convention": "1d",
+            "convention": {
+                "level": 1,
+                "biddingColor": "DIAMONDS"
+            },
             "conventionName": "",
             "type": "Opening",
             "conditions": [
                 {
-                    "description": "12-17 points. Min 5 diamonds. Max 4 clubs, hearts and spades",
+                    "description": "12-17 points. Min 5 diamonds. Max 4 clubs, hearths and spades",
                     "clubs": {
                         "min": 0,
                         "max": 4
@@ -48,7 +103,7 @@
                         "min": 5,
                         "max": 13
                     },
-                    "hearts": {
+                    "hearths": {
                         "min": 0,
                         "max": 4
                     },
@@ -64,12 +119,15 @@
             ]
         },
         {
-            "convention": "1h",
+            "convention": {
+                "level": 1,
+                "biddingColor": "HEARTHS"
+            },
             "conventionName": "",
             "type": "Opening",
             "conditions": [
                 {
-                    "description": "12-17 points. Min 5 hearts.",
+                    "description": "12-17 points. Min 5 hearths.",
                     "clubs": {
                         "min": 0,
                         "max": 13
@@ -78,7 +136,7 @@
                         "min": 0,
                         "max": 13
                     },
-                    "hearts": {
+                    "hearths": {
                         "min": 5,
                         "max": 13
                     },
@@ -94,7 +152,10 @@
             ]
         },
         {
-            "convention": "1s",
+            "convention": {
+                "level": 1,
+                "biddingColor": "SPADES"
+            },
             "conventionName": "",
             "type": "Opening",
             "conditions": [
@@ -108,7 +169,7 @@
                         "min": 0,
                         "max": 13
                     },
-                    "hearts": {
+                    "hearths": {
                         "min": 0,
                         "max": 13
                     },
@@ -124,7 +185,10 @@
             ]
         },
         {
-            "convention": "1nt",
+            "convention": {
+                "level": 1,
+                "biddingColor": "NOTRUMP"
+            },
             "conventionName": "",
             "type": "Opening",
             "conditions": [
@@ -138,7 +202,7 @@
                         "min": 1,
                         "max": 4
                     },
-                    "hearts": {
+                    "hearths": {
                         "min": 1,
                         "max": 4
                     },
