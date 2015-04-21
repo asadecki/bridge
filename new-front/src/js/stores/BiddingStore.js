@@ -12,6 +12,8 @@ function addBidding(bidding, player) {
 let BiddingStore = assign({}, BaseStore, {
 
     getBiddings() {
+        console.log(_data);
+
         return {
             biddings: _data
         };

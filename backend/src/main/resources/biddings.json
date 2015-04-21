@@ -83,6 +83,64 @@
                         "max": 40
                     }
                 }
+            ],
+            "answers": [
+                {
+                    "convention": {
+                        "level": 1,
+                        "biddingColor": "DIAMONDS"
+                    },
+                    "conventionName": "",
+                    "type": "ANSWER",
+                    "conditions": [
+                        {
+                            "description": "Negat",
+                            "clubs": {
+                                "min": 0,
+                                "max": 13
+                            },
+                            "diamonds": {
+                                "min": 0,
+                                "max": 13
+                            },
+                            "hearts": {
+                                "min": 0,
+                                "max": 13
+                            },
+                            "spades": {
+                                "min": 0,
+                                "max": 13
+                            },
+                            "points": {
+                                "min": 0,
+                                "max": 5
+                            }
+                        },
+                        {
+                            "description": "",
+                            "clubs": {
+                                "min": 0,
+                                "max": 13
+                            },
+                            "diamonds": {
+                                "min": 4,
+                                "max": 13
+                            },
+                            "hearts": {
+                                "min": 0,
+                                "max": 13
+                            },
+                            "spades": {
+                                "min": 0,
+                                "max": 13
+                            },
+                            "points": {
+                                "min": 7,
+                                "max": 40
+                            }
+                        }
+                    ]
+                }
             ]
         },
         {
@@ -222,7 +280,7 @@
                         "level": 2,
                         "biddingColor": "DIAMONDS"
                     },
-                    "conventionName": "Hearts transfer",
+                    "conventionName": "Transfer",
                     "type": "ANSWER",
                     "conditions": [
                         {
@@ -256,7 +314,7 @@
                                 "level": 2,
                                 "biddingColor": "HEARTS"
                             },
-                            "conventionName": "Hearts accepted with 15 pc",
+                            "conventionName": "",
                             "type": "ANSWER",
                             "conditions": [
                                 {
@@ -289,7 +347,7 @@
                                 "level": 4,
                                 "biddingColor": "HEARTS"
                             },
-                            "conventionName": "Final 4h with strong hand",
+                            "conventionName": "",
                             "type": "ANSWER",
                             "conditions": [
                                 {

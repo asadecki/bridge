@@ -1,7 +1,9 @@
 package bridge.domain.bidding;
 
 import javax.ws.rs.QueryParam;
+import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 public class BiddingHistory {
 
@@ -12,7 +14,7 @@ public class BiddingHistory {
 	}
 
 	public List<String> getBiddings() {
-		return biddings;
+		return Optional.ofNullable(biddings).orElse(Collections.emptyList());
 	}
 
 	public void setBiddings(List<String> biddings) {
