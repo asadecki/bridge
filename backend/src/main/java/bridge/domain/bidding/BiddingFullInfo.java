@@ -1,4 +1,6 @@
-package bridge.domain;
+package bridge.domain.bidding;
+
+import bridge.domain.Condition;
 
 import java.util.List;
 
@@ -11,6 +13,11 @@ public class BiddingFullInfo {
 	private List<BiddingFullInfo> answers;
 
 	public BiddingFullInfo() {
+	}
+
+	public String getShortenConvention() {
+		String name = convention.getBiddingColor().name();
+		return String.valueOf(convention.getLevel()) + (name.equals(BiddingColor.NOTRUMP.name()) ? "NT" : name.substring(0, 1));
 	}
 
 	public Bidding getConvention() {

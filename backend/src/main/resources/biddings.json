@@ -215,6 +215,111 @@
                         "max": 17
                     }
                 }
+            ],
+            "answers": [
+                {
+                    "convention": {
+                        "level": 2,
+                        "biddingColor": "DIAMONDS"
+                    },
+                    "conventionName": "Hearts transfer",
+                    "type": "ANSWER",
+                    "conditions": [
+                        {
+                            "description": "Min 6 pc. 5 or more hearths",
+                            "clubs": {
+                                "min": 0,
+                                "max": 13
+                            },
+                            "diamonds": {
+                                "min": 0,
+                                "max": 13
+                            },
+                            "hearths": {
+                                "min": 5,
+                                "max": 13
+                            },
+                            "spades": {
+                                "min": 0,
+                                "max": 13
+                            },
+                            "points": {
+                                "min": 6,
+                                "max": 40
+
+                            }
+                        }
+                    ],
+                    "answers": [
+                        {
+                            "convention": {
+                                "level": 2,
+                                "biddingColor": "HEARTHS"
+                            },
+                            "conventionName": "Hearts accepted with 15 pc",
+                            "type": "ANSWER",
+                            "conditions": [
+                                {
+                                    "description": "15 pc.",
+                                    "clubs": {
+                                        "min": 0,
+                                        "max": 13
+                                    },
+                                    "diamonds": {
+                                        "min": 0,
+                                        "max": 13
+                                    },
+                                    "hearths": {
+                                        "min": 3,
+                                        "max": 13
+                                    },
+                                    "spades": {
+                                        "min": 0,
+                                        "max": 13
+                                    },
+                                    "points": {
+                                        "min": 15,
+                                        "max": 15
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "convention": {
+                                "level": 4,
+                                "biddingColor": "HEARTHS"
+                            },
+                            "conventionName": "Final 4h with strong hand",
+                            "type": "ANSWER",
+                            "conditions": [
+                                {
+                                    "description": "16-17 pc.",
+                                    "clubs": {
+                                        "min": 0,
+                                        "max": 13
+                                    },
+                                    "diamonds": {
+                                        "min": 0,
+                                        "max": 13
+                                    },
+                                    "hearths": {
+                                        "min": 3,
+                                        "max": 13
+                                    },
+                                    "spades": {
+                                        "min": 0,
+                                        "max": 13
+                                    },
+                                    "points": {
+                                        "min": 16,
+                                        "max": 17
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+
+                }
             ]
         }
     ]

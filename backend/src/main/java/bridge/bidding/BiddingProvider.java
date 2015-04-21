@@ -1,10 +1,11 @@
 package bridge.bidding;
 
 import bridge.domain.BalanceWithPoints;
-import bridge.domain.Bidding;
-import bridge.domain.BiddingFullInfo;
 import bridge.domain.Condition;
 import bridge.domain.Limit;
+import bridge.domain.bidding.Bidding;
+import bridge.domain.bidding.BiddingFullInfo;
+import bridge.domain.bidding.BiddingHistory;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
@@ -18,23 +19,43 @@ public class BiddingProvider {
 
 	public static final String BIDDINGS_JSON_FILE = "./backend/src/main/resources/biddings.json";
 
-	public List<Bidding> getBiddings(BalanceWithPoints balance) {
+	public List<Bidding> getBiddings(BalanceWithPoints balance, BiddingHistory biddingHistory) {
 		try {
 			ObjectMapper mapper = new ObjectMapper();
 
 			BiddingFullInfo biddingFullInfo = mapper.readValue(new File(BIDDINGS_JSON_FILE), BiddingFullInfo.class); // TODO this mapping should be done only one
-			return biddingFullInfo
-				.getAnswers()
-				.stream()
-				.map(answer -> getBidding(answer, balance))
-				.filter(Optional::isPresent)
-				.map(Optional::get)
-				.collect(Collectors.toList());
+
+			BiddingFullInfo currentHead = biddingFullInfo;
+			currentHead = getLastBiddingNode(biddingHistory, currentHead);
+
+			return getBiddings(balance, currentHead);
 
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		return Collections.emptyList();
+	}
+
+	private List<Bidding> getBiddings(BalanceWithPoints balance, BiddingFullInfo currentHead) {
+		return currentHead
+			.getAnswers()
+			.stream()
+			.map(answer -> getBidding(answer, balance))
+			.filter(Optional::isPresent)
+			.map(Optional::get)
+			.collect(Collectors.toList());
+	}
+
+	private BiddingFullInfo getLastBiddingNode(BiddingHistory biddingHistory, BiddingFullInfo currentHead) {
+		for (String bidding : biddingHistory.getBiddings()) {
+			for (BiddingFullInfo answer : currentHead.getAnswers()) {
+				if (answer.getShortenConvention().toLowerCase().equals(bidding.toLowerCase())) {
+					currentHead = answer;
+					break;
+				}
+			}
+		}
+		return currentHead;
 	}
 
 	private Optional<Bidding> getBidding(BiddingFullInfo answer, BalanceWithPoints balance) {

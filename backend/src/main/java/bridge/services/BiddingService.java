@@ -2,10 +2,10 @@ package bridge.services;
 
 import bridge.bidding.BiddingProvider;
 import bridge.domain.BalanceWithPoints;
-import bridge.domain.Bidding;
+import bridge.domain.bidding.Bidding;
+import bridge.domain.bidding.BiddingHistory;
 
 import java.util.List;
-import java.util.Optional;
 
 public class BiddingService {
 
@@ -15,7 +15,7 @@ public class BiddingService {
 		this.biddingProvider = biddingProvider;
 	}
 
-	public List<Bidding> getBiddings(BalanceWithPoints balance) {
-		return biddingProvider.getBiddings(balance);
+	public List<Bidding> getBiddings(BalanceWithPoints balance, BiddingHistory biddingHistory) {
+		return biddingProvider.getBiddings(balance, biddingHistory);
 	}
 }

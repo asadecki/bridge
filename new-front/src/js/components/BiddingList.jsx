@@ -9,7 +9,7 @@ let BiddingList = React.createClass({
 
  	getInitialState() {
     	return {
-      		biddings: {
+      		biddingsNorth: {
       			north : [],
       			south : []
       		}
@@ -29,11 +29,11 @@ let BiddingList = React.createClass({
 	},
 
   	render() {
-    	let {biddings} = this.state;
+    	let {biddingsNorth} = this.state;
     	return (
     		<div>
     			<Button bsStyle='info' onClick={this.handleBiddingClick} id={this.props.biddingBtnId}>Bidding</Button>
-              	{biddings[this.props.player].map(bidding => <ListGroupItem>{bidding}</ListGroupItem>)}
+              	{biddingsNorth[this.props.player].map(bidding => <ListGroupItem>{bidding}</ListGroupItem>)}
 			</div>
         );
   	}
