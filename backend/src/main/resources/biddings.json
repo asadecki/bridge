@@ -24,7 +24,7 @@
                         "min": 0,
                         "max": 4
                     },
-                    "hearths": {
+                    "hearts": {
                         "min": 0,
                         "max": 4
                     },
@@ -47,7 +47,7 @@
                         "min": 0,
                         "max": 13
                     },
-                    "hearths": {
+                    "hearts": {
                         "min": 0,
                         "max": 13
                     },
@@ -70,7 +70,7 @@
                         "min": 0,
                         "max": 13
                     },
-                    "hearths": {
+                    "hearts": {
                         "min": 0,
                         "max": 13
                     },
@@ -94,22 +94,22 @@
             "type": "Opening",
             "conditions": [
                 {
-                    "description": "12-17 points. Min 5 diamonds. Max 4 clubs, hearths and spades",
+                    "description": "",
                     "clubs": {
                         "min": 0,
-                        "max": 4
+                        "max": 14
                     },
                     "diamonds": {
                         "min": 5,
                         "max": 13
                     },
-                    "hearths": {
+                    "hearts": {
                         "min": 0,
-                        "max": 4
+                        "max": 13
                     },
                     "spades": {
                         "min": 0,
-                        "max": 4
+                        "max": 13
                     },
                     "points": {
                         "min": 12,
@@ -121,13 +121,13 @@
         {
             "convention": {
                 "level": 1,
-                "biddingColor": "HEARTHS"
+                "biddingColor": "HEARTS"
             },
             "conventionName": "",
             "type": "Opening",
             "conditions": [
                 {
-                    "description": "12-17 points. Min 5 hearths.",
+                    "description": "12-17 points. Min 5 hearts.",
                     "clubs": {
                         "min": 0,
                         "max": 13
@@ -136,7 +136,7 @@
                         "min": 0,
                         "max": 13
                     },
-                    "hearths": {
+                    "hearts": {
                         "min": 5,
                         "max": 13
                     },
@@ -169,7 +169,7 @@
                         "min": 0,
                         "max": 13
                     },
-                    "hearths": {
+                    "hearts": {
                         "min": 0,
                         "max": 13
                     },
@@ -202,7 +202,7 @@
                         "min": 1,
                         "max": 4
                     },
-                    "hearths": {
+                    "hearts": {
                         "min": 1,
                         "max": 4
                     },
@@ -226,7 +226,7 @@
                     "type": "ANSWER",
                     "conditions": [
                         {
-                            "description": "Min 6 pc. 5 or more hearths",
+                            "description": "Min 6 pc. 5 or more hearts",
                             "clubs": {
                                 "min": 0,
                                 "max": 13
@@ -235,7 +235,7 @@
                                 "min": 0,
                                 "max": 13
                             },
-                            "hearths": {
+                            "hearts": {
                                 "min": 5,
                                 "max": 13
                             },
@@ -254,7 +254,7 @@
                         {
                             "convention": {
                                 "level": 2,
-                                "biddingColor": "HEARTHS"
+                                "biddingColor": "HEARTS"
                             },
                             "conventionName": "Hearts accepted with 15 pc",
                             "type": "ANSWER",
@@ -269,7 +269,7 @@
                                         "min": 0,
                                         "max": 13
                                     },
-                                    "hearths": {
+                                    "hearts": {
                                         "min": 3,
                                         "max": 13
                                     },
@@ -287,7 +287,7 @@
                         {
                             "convention": {
                                 "level": 4,
-                                "biddingColor": "HEARTHS"
+                                "biddingColor": "HEARTS"
                             },
                             "conventionName": "Final 4h with strong hand",
                             "type": "ANSWER",
@@ -302,7 +302,7 @@
                                         "min": 0,
                                         "max": 13
                                     },
-                                    "hearths": {
+                                    "hearts": {
                                         "min": 3,
                                         "max": 13
                                     },

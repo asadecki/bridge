@@ -2,7 +2,7 @@ package bridge.domain;
 
 public enum CardColor {
 
-    CLUB(0), DIAMOND(1), HEARTH(2), SPADE(3);
+    CLUB(0), DIAMOND(1), HEART(2), SPADE(3);
 
     private int priority;
 

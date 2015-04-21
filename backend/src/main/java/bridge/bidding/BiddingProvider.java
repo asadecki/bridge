@@ -70,7 +70,7 @@ public class BiddingProvider {
 	private boolean checkConditions(Condition condition, BalanceWithPoints balance) {
 		return checkLimit(condition.getClubs(), balance.getNumberOfClubs()) &&
 			checkLimit(condition.getDiamonds(), balance.getNumberOfDiamonds()) &&
-			checkLimit(condition.getHearths(), balance.getNumberOfHearts()) &&
+			checkLimit(condition.getHearts(), balance.getNumberOfHearts()) &&
 			checkLimit(condition.getSpades(), balance.getNumberOfSpades()) &&
 			checkLimit(condition.getPoints(), balance.getPoints());
 	}
