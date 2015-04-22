@@ -13,8 +13,8 @@ public class Table {
 	}
 
 	private void init() {
-		playerSouth = new Player(PlayerPlace.NORTH, 0);
-		playerNorth = new Player(PlayerPlace.SOUTH, 1);
+		playerSouth = new Player(PlayerPlace.SOUTH, 0);
+		playerNorth = new Player(PlayerPlace.NORTH, 1);
 		playerEast = new Player(PlayerPlace.EAST, 2);
 		playerWest = new Player(PlayerPlace.WEST, 3);
 	}
