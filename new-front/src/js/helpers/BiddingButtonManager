@@ -1,0 +1,21 @@
+const assign = require('object-assign');
+
+var buttons = {
+    "bidding-list-south" : "bidding-list-north",
+    "bidding-list-north" : "bidding-list-south"
+};
+
+var BiddingButtonManager = assign({}, {
+
+    hideBiddingButton(buttonId) {
+        $("#" + buttonId).hide();
+        this.showCorrespondingButton(buttons[buttonId]);
+    },
+
+    showCorrespondingButton(buttonId) {
+        $("#" + buttonId).show();
+    }
+
+});
+
+module.exports = BiddingButtonManager;

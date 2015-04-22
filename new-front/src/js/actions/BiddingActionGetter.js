@@ -81,6 +81,10 @@ module.exports = {
         var color = biddingText.substring(1, biddingText.length);
         var shortCut = level;
 
+        if (color == "PAS") {
+            return "PAS";
+        }
+
         if (color == "NOTRUMP") {
             shortCut += 'nt';
         } else {
@@ -108,7 +112,7 @@ module.exports = {
 
         console.log(typeof biddings);
         return {
-            biddings: [1,2,3],
+            biddings: biddings,
             points: pointsSum,
             numberOfClubs: colors["C"],
             numberOfDiamonds: colors["D"],
