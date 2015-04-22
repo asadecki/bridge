@@ -30,11 +30,10 @@ let BiddingList = React.createClass({
 
   	render() {
     	let {biddings} = this.state;
-    	console.log({biddings});
     	return (
     		<div>
     			<Button bsStyle='info' onClick={this.handleBiddingClick} id={this.props.biddingBtnId}>Bidding</Button>
-              	{biddings[this.props.player].map(bidding => <ListGroupItem>{bidding}</ListGroupItem>)}
+              	{biddings[this.props.player].map(bidding => <ListGroupItem className={this.props.player}>{bidding}</ListGroupItem>)}
 			</div>
         );
   	}

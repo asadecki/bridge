@@ -10,6 +10,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -26,7 +27,7 @@ public class BiddingProvider {
 			BiddingFullInfo biddingFullInfo = mapper.readValue(new File(BIDDINGS_JSON_FILE), BiddingFullInfo.class); // TODO this mapping should be done only one
 
 			BiddingFullInfo currentHead = biddingFullInfo;
-			currentHead = getLastBiddingNode(biddingHistory, currentHead);
+			currentHead = getLastBiddingNode(biddingHistory.getBiddings(), currentHead);
 
 			return getBiddings(balance, currentHead);
 
@@ -46,8 +47,8 @@ public class BiddingProvider {
 			.collect(Collectors.toList());
 	}
 
-	private BiddingFullInfo getLastBiddingNode(BiddingHistory biddingHistory, BiddingFullInfo currentHead) {
-		for (String bidding : biddingHistory.getBiddings()) {
+	private BiddingFullInfo getLastBiddingNode(List<String> biddingHistory, BiddingFullInfo currentHead) {
+		for (String bidding : biddingHistory) {
 			for (BiddingFullInfo answer : currentHead.getAnswers()) {
 				if (answer.getShortenConvention().toLowerCase().equals(bidding.toLowerCase())) {
 					currentHead = answer;

@@ -13,24 +13,30 @@ module.exports = {
     getBidding: function (event) {
         var $playerPanel = event.target.closest(".player-panel");
         var $images = $playerPanel.querySelectorAll("img");
-        var imagesArray  = [].slice.call($images);
+        var imagesArray = [].slice.call($images);
 
         var colors = this.getCardsInColorMap(imagesArray);
         var pointsSum = this.getPointsSum(imagesArray);
 
+        var $biddingsNorth = $(".list-group-item.north");
+        var $biddingsSouth = $(".list-group-item.south");
+        var biddingsArrayNorth = [].slice.call($biddingsNorth);
+        var biddingsArraySouth = [].slice.call($biddingsSouth);
+
+        var mergedBiddings = this.mergeBiddings(biddingsArrayNorth, biddingsArraySouth);
+
         $.ajax({
+            traditional: true,
             url: 'http://localhost:8080/bidding',
             dataType: 'json',
-            data: this.prepareDataMapForGet(pointsSum, colors),
+            data: this.prepareDataMapForGet(pointsSum, colors, mergedBiddings),
             async: false,
             success: function (data) {
-                // FIXME only one bidding should be returned
                 this.biddings = data[0];
             }.bind(this),
             error: function (xhr, status, err) {
             }.bind(this)
         });
-
 
         AppDispatcher.handleViewAction({
             type: Constants.ActionTypes.GET_BIDDING,
@@ -55,6 +61,34 @@ module.exports = {
         return colors;
     },
 
+    mergeBiddings: function (biddingsArrayNorth, biddingsArraySouth) {
+        var merged = [];
+
+        for (var index = 0; index < biddingsArrayNorth.length; index++) {
+            var shortCutN = this.shortenBidding(biddingsArrayNorth[index].innerHTML);
+            merged.push(shortCutN);
+            if (biddingsArraySouth[index]) {
+                var shortCutS = this.shortenBidding(biddingsArraySouth[index].innerHTML);
+                merged.push(shortCutS);
+            }
+        }
+
+        return merged;
+    },
+
+    shortenBidding: function (biddingText) {
+        var level = biddingText.substring(0, 1);
+        var color = biddingText.substring(1, biddingText.length);
+        var shortCut = level;
+
+        if (color == "NOTRUMP") {
+            shortCut += 'nt';
+        } else {
+            shortCut += color.substring(0, 1);
+        }
+        return shortCut;
+    },
+
     getPointsSum: function (images) {
 
         var points = images.map(function (item) {
@@ -70,8 +104,11 @@ module.exports = {
         return pointsSum;
     },
 
-    prepareDataMapForGet: function (pointsSum, colors) {
+    prepareDataMapForGet: function (pointsSum, colors, biddings) {
+
+        console.log(typeof biddings);
         return {
+            biddings: [1,2,3],
             points: pointsSum,
             numberOfClubs: colors["C"],
             numberOfDiamonds: colors["D"],

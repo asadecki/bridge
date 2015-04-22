@@ -12,8 +12,6 @@ function addBidding(bidding, player) {
 let BiddingStore = assign({}, BaseStore, {
 
     getBiddings() {
-        console.log(_data);
-
         return {
             biddings: _data
         };
@@ -25,9 +23,13 @@ let BiddingStore = assign({}, BaseStore, {
         switch (action.type) {
 
             case Constants.ActionTypes.GET_BIDDING:
-                let biddings = action.biddings;
+                let bidding = "PAS";
+                if (typeof action.biddings !== "undefined") {
+                    bidding = action.biddings.level + action.biddings.biddingColor;
+                }
+
                 let player = action.player;
-                addBidding(biddings, player);
+                addBidding(bidding, player);
                 BiddingStore.emitChange();
                 break;
         }
