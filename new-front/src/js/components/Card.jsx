@@ -13,7 +13,8 @@ let cardShortcut = {
 	'JACK': 'j',
 	'QUEEN': 'q',
 	'KING': 'k',
-	'ACE': 1
+	'ACE': 1,
+	'none' : 'b1fv'
 };
 
 let Card = React.createClass({

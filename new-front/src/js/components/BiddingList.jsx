@@ -2,7 +2,7 @@ const React = require('react');
 const ListGroup = require('react-bootstrap/lib/ListGroup');
 const ListGroupItem = require('react-bootstrap/lib/ListGroupItem');
 const Button = require('react-bootstrap/lib/Button');
-const BiddingButtonManager = require('../helpers/BiddingButtonManager');
+const BiddingButtonHelper = require('../helpers/BiddingButtonHelper');
 const BiddingActionGetter = require('../actions/BiddingActionGetter');
 const BiddingStore = require('../stores/BiddingStore');
 
@@ -27,7 +27,7 @@ let BiddingList = React.createClass({
 
 	handleBiddingClick(e) {
 		BiddingActionGetter.getBidding(e);
-		BiddingButtonManager.hideBiddingButton(e.target.id);
+		BiddingButtonHelper.hideBiddingButton(e.target.id);
 	},
 
   	render() {

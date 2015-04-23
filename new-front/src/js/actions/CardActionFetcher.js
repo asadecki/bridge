@@ -13,46 +13,7 @@ module.exports = {
                 this.cards = data;
             }.bind(this),
             error: function (xhr, status, err) {
-                this.cards = {
-                    playerNorth: {
-                        hand: {
-                            cards: [
-                                {color: 'SPADE', cardValue: 'ACE'},
-                                {color: 'SPADE', cardValue: 'ACE'},
-                                {color: 'SPADE', cardValue: 'ACE'},
-                                {color: 'SPADE', cardValue: 'ACE'},
-                                {color: 'SPADE', cardValue: 'ACE'},
-                                {color: 'SPADE', cardValue: 'ACE'},
-                                {color: 'SPADE', cardValue: 'ACE'},
-                                {color: 'SPADE', cardValue: 'ACE'},
-                                {color: 'SPADE', cardValue: 'ACE'},
-                                {color: 'SPADE', cardValue: 'ACE'},
-                                {color: 'SPADE', cardValue: 'ACE'},
-                                {color: 'SPADE', cardValue: 'ACE'},
-                                {color: 'SPADE', cardValue: 'ACE'}
-                            ]
-                        }
-                    },
-                    playerSouth: {
-                        hand: {
-                            cards: [
-                                {color: 'SPADE', cardValue: 'ACE'},
-                                {color: 'SPADE', cardValue: 'ACE'},
-                                {color: 'SPADE', cardValue: 'ACE'},
-                                {color: 'SPADE', cardValue: 'ACE'},
-                                {color: 'SPADE', cardValue: 'ACE'},
-                                {color: 'SPADE', cardValue: 'ACE'},
-                                {color: 'SPADE', cardValue: 'ACE'},
-                                {color: 'SPADE', cardValue: 'ACE'},
-                                {color: 'SPADE', cardValue: 'ACE'},
-                                {color: 'SPADE', cardValue: 'ACE'},
-                                {color: 'SPADE', cardValue: 'ACE'},
-                                {color: 'SPADE', cardValue: 'ACE'},
-                                {color: 'SPADE', cardValue: 'ACE'}
-                            ]
-                        }
-                    }
-                };
+
             }.bind(this)
         });
 
@@ -61,6 +22,52 @@ module.exports = {
                 cards: this.cards
             }
         );
+    },
+
+    getInitState: function () {
+        return {
+            cards: {
+                playerNorth: {
+                    hand: {
+                        cards: [
+                            {color: '', cardValue: 'none'},
+                            {color: '', cardValue: 'none'},
+                            {color: '', cardValue: 'none'},
+                            {color: '', cardValue: 'none'},
+                            {color: '', cardValue: 'none'},
+                            {color: '', cardValue: 'none'},
+                            {color: '', cardValue: 'none'},
+                            {color: '', cardValue: 'none'},
+                            {color: '', cardValue: 'none'},
+                            {color: '', cardValue: 'none'},
+                            {color: '', cardValue: 'none'},
+                            {color: '', cardValue: 'none'},
+                            {color: '', cardValue: 'none'}
+                        ]
+                    }
+                },
+                playerSouth: {
+                    hand: {
+                        cards: [
+                            {color: '', cardValue: 'none'},
+                            {color: '', cardValue: 'none'},
+                            {color: '', cardValue: 'none'},
+                            {color: '', cardValue: 'none'},
+                            {color: '', cardValue: 'none'},
+                            {color: '', cardValue: 'none'},
+                            {color: '', cardValue: 'none'},
+                            {color: '', cardValue: 'none'},
+                            {color: '', cardValue: 'none'},
+                            {color: '', cardValue: 'none'},
+                            {color: '', cardValue: 'none'},
+                            {color: '', cardValue: 'none'},
+                            {color: '', cardValue: 'none'}
+                        ]
+                    }
+                }
+            }
+
+        }
     }
 };
 

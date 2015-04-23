@@ -1,7 +1,8 @@
 const React = require('react');
 const CardStore = require('../stores/CardStore');
 const CardActionFetcher = require('../actions/CardActionFetcher');
-const BiddingButtonManager = require('../helpers/BiddingButtonManager');
+const BiddingButtonManager = require('../helpers/BiddingButtonHelper');
+const BiddingListHelper = require('../helpers/BiddingListHelper');
 const Button = require('react-bootstrap/lib/Button');
 const Panel = require('react-bootstrap/lib/Panel');
 const CardList = require('./CardList.jsx');
@@ -10,20 +11,7 @@ const BiddingList = require('./BiddingList.jsx');
 let App = React.createClass({
 
   	getInitialState() {
-    	return {
-      		cards: {
-      			playerNorth : {
-      				hand : {
-      					cards : []
-      				}
-      			},
-      			playerSouth : {
-					hand : {
-						cards : []
-					}
-				}
-      		}
-    	}
+    	return CardActionFetcher.getInitState();
   	},
 
   	_onChange() {
@@ -32,12 +20,14 @@ let App = React.createClass({
 
   	componentDidMount() {
     	CardStore.addChangeListener(this._onChange);
-    	BiddingButtonManager.hideBiddingButton("bidding-list-south");
+    	BiddingButtonManager.hideBiddingButtons();
 
   	},
 
   	handleGetCardsClick(e) {
     	CardActionFetcher.fetchAllCards();
+    	BiddingButtonManager.hideBiddingButton("bidding-list-south");
+    	BiddingListHelper.clearBiddingList();
   	},
 
   	render() {
@@ -57,7 +47,6 @@ let App = React.createClass({
 					<BiddingList biddingBtnId="bidding-list-south" player="south"></BiddingList>
 					<CardList cards={cards.playerSouth.hand.cards} />
 				</Panel>
-
 			</div>
     	);
   	}

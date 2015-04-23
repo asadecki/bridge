@@ -7,6 +7,11 @@ var buttons = {
 
 var BiddingButtonManager = assign({}, {
 
+    hideBiddingButtons() {
+        $("#" + buttons["bidding-list-south"]).hide();
+        $("#" + buttons["bidding-list-north"]).hide();
+    },
+
     hideBiddingButton(buttonId) {
         $("#" + buttonId).hide();
         this.showCorrespondingButton(buttons[buttonId]);
@@ -15,7 +20,6 @@ var BiddingButtonManager = assign({}, {
     showCorrespondingButton(buttonId) {
         $("#" + buttonId).show();
     }
-
 });
 
 module.exports = BiddingButtonManager;
