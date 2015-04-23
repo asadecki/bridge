@@ -1,5 +1,7 @@
 var AppDispatcher = require('../dispatchers/AppDispatcher');
 var Constants = require('../constants/AppConstants');
+var BiddingButtonHelper = require('../helpers/BiddingButtonHelper');
+
 
 let cardValues = {
     'JACK': 1,
@@ -33,6 +35,9 @@ module.exports = {
             async: false,
             success: function (data) {
                 this.biddings = data[0];
+                if (mergedBiddings.length > 0 && data.length == 0) {
+                    BiddingButtonHelper.hideBiddingButtons();
+                }
             }.bind(this),
             error: function (xhr, status, err) {
             }.bind(this)
@@ -109,8 +114,6 @@ module.exports = {
     },
 
     prepareDataMapForGet: function (pointsSum, colors, biddings) {
-
-        console.log(typeof biddings);
         return {
             biddings: biddings,
             points: pointsSum,

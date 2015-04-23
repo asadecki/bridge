@@ -26,8 +26,8 @@ let BiddingList = React.createClass({
 	},
 
 	handleBiddingClick(e) {
-		BiddingActionGetter.getBidding(e);
 		BiddingButtonHelper.hideBiddingButton(e.target.id);
+		BiddingActionGetter.getBidding(e);
 	},
 
   	render() {
