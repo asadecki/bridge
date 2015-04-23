@@ -49,10 +49,12 @@ public class BiddingProvider {
 
 	private BiddingFullInfo getLastBiddingNode(List<String> biddingHistory, BiddingFullInfo currentHead) {
 		for (String bidding : biddingHistory) {
-			for (BiddingFullInfo answer : currentHead.getAnswers()) {
-				if (answer.getShortenConvention().toLowerCase().equals(bidding.toLowerCase())) {
-					currentHead = answer;
-					break;
+			if (!bidding.equals("PAS")) {
+				for (BiddingFullInfo answer : currentHead.getAnswers()) {
+					if (answer.getShortenConvention().toLowerCase().equals(bidding.toLowerCase())) {
+						currentHead = answer;
+						break;
+					}
 				}
 			}
 		}

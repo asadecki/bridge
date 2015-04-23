@@ -2,7 +2,9 @@ package bridge.domain.bidding;
 
 import bridge.domain.Condition;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 public class BiddingFullInfo {
 
@@ -45,7 +47,7 @@ public class BiddingFullInfo {
 	}
 
 	public List<BiddingFullInfo> getAnswers() {
-		return answers;
+		return Optional.ofNullable(answers).orElse(Collections.emptyList());
 	}
 
 	public void setAnswers(List<BiddingFullInfo> answers) {
