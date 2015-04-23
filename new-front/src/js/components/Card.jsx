@@ -34,7 +34,7 @@ let Card = React.createClass({
   	render() {
     	let {card} = this.props;
 		return (
-			<img className="card" src={"images/" + this.colorShortcut(card.color) + cardShortcut[card.cardValue] + ".gif"}
+			<img className='card' src={'images/' + this.colorShortcut(card.color) + cardShortcut[card.cardValue] + '.gif'}
 			data-card-value={card.cardValue}
 			data-card-color={this.colorShortcut(card.color)}/>
 		);

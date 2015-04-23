@@ -34,7 +34,7 @@ module.exports = {
             data: this.prepareDataMapForGet(pointsSum, colors, mergedBiddings),
             async: false,
             success: function (data) {
-                this.biddings = data[0];
+                this.biddings = data[0]; // FIXME backend should return only one bidding
                 if (mergedBiddings.length > 0 && data.length == 0) {
                     BiddingButtonHelper.hideBiddingButtons();
                 }
@@ -46,7 +46,7 @@ module.exports = {
         AppDispatcher.handleViewAction({
             type: Constants.ActionTypes.GET_BIDDING,
             biddings: this.biddings,
-            player: event.target.id.replace("bidding-list-", "")
+            player: event.target.id.replace('bidding-list-', '')
         });
     },
 
@@ -60,7 +60,7 @@ module.exports = {
         };
 
         images.forEach(function (item) {
-            colors[item.getAttribute("data-card-color")]++;
+            colors[item.getAttribute('data-card-color')]++;
         });
 
         return colors;
@@ -86,11 +86,11 @@ module.exports = {
         var color = biddingText.substring(1, biddingText.length);
         var shortCut = level;
 
-        if (color == "PAS") {
-            return "PAS";
+        if (color == 'PAS') {
+            return 'PAS';
         }
 
-        if (color == "NOTRUMP") {
+        if (color == 'NOTRUMP') {
             shortCut += 'nt';
         } else {
             shortCut += color.substring(0, 1);
@@ -101,7 +101,7 @@ module.exports = {
     getPointsSum: function (images) {
 
         var points = images.map(function (item) {
-            var cardPoints = cardValues[item.getAttribute("data-card-value")] || 0;
+            var cardPoints = cardValues[item.getAttribute('data-card-value')] || 0;
             return cardPoints;
         });
 
@@ -117,10 +117,10 @@ module.exports = {
         return {
             biddings: biddings,
             points: pointsSum,
-            numberOfClubs: colors["C"],
-            numberOfDiamonds: colors["D"],
-            numberOfHearts: colors["H"],
-            numberOfSpades: colors["S"]
+            numberOfClubs: colors['C'],
+            numberOfDiamonds: colors['D'],
+            numberOfHearts: colors['H'],
+            numberOfSpades: colors['S']
         };
     }
 };

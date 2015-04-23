@@ -8,17 +8,17 @@ var buttons = {
 var BiddingButtonManager = assign({}, {
 
     hideBiddingButtons() {
-        $("#" + buttons["bidding-list-south"]).hide();
-        $("#" + buttons["bidding-list-north"]).hide();
+        $('#' + buttons['bidding-list-south']).hide();
+        $('#' + buttons['bidding-list-north']).hide();
     },
 
     hideBiddingButton(buttonId) {
-        $("#" + buttonId).hide();
+        $('#' + buttonId).hide();
         this.showCorrespondingButton(buttons[buttonId]);
     },
 
     showCorrespondingButton(buttonId) {
-        $("#" + buttonId).show();
+        $('#' + buttonId).show();
     }
 });
 

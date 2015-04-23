@@ -23,8 +23,8 @@ let BiddingStore = assign({}, BaseStore, {
         switch (action.type) {
 
             case Constants.ActionTypes.GET_BIDDING:
-                let bidding = "PAS";
-                if (typeof action.biddings !== "undefined") {
+                let bidding = 'PAS';
+                if (typeof action.biddings !== 'undefined') {
                     bidding = action.biddings.level + action.biddings.biddingColor;
                 }
 

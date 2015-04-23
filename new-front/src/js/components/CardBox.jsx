@@ -34,17 +34,17 @@ let App = React.createClass({
     	let {cards} = this.state;
 		return (
 			<div>
-				<Panel className="player-panel" header="NORTH" bsStyle='primary'>
+				<Panel className='player-panel' header='NORTH' bsStyle='primary'>
 					<CardList cards={cards.playerNorth.hand.cards} />
-					<BiddingList biddingBtnId="bidding-list-north" player="north"></BiddingList>
+					<BiddingList biddingBtnId='bidding-list-north' player='north'></BiddingList>
 				</Panel>
 
 				<Panel>
-					<Button className="getCardsButton" onClick={this.handleGetCardsClick} bsStyle='primary' bsSize='large'>Get cards</Button>
+					<Button className='getCardsButton' onClick={this.handleGetCardsClick} bsStyle='primary' bsSize='large'>Get cards</Button>
 				</Panel>
 
-				<Panel className="player-panel" header="SOUTH" bsStyle='primary'>
-					<BiddingList biddingBtnId="bidding-list-south" player="south"></BiddingList>
+				<Panel className='player-panel' header='SOUTH' bsStyle='primary'>
+					<BiddingList biddingBtnId='bidding-list-south' player='south'></BiddingList>
 					<CardList cards={cards.playerSouth.hand.cards} />
 				</Panel>
 			</div>
