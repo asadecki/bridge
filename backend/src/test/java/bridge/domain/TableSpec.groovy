@@ -20,10 +20,10 @@ class TableSpec extends Specification {
         then:
 
         player0.getPosition() == 0
-        player0.getName().equals(PlayerPlace.NORTH)
+        player0.getName().equals(PlayerPlace.SOUTH)
 
         player1.getPosition() == 1
-        player1.getName().equals(PlayerPlace.SOUTH)
+        player1.getName().equals(PlayerPlace.NORTH)
 
         player2.getPosition() == 2
         player2.getName().equals(PlayerPlace.EAST)

@@ -1,0 +1,45 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.github.jengelman.gradle.plugins:shadow:1.1.2'
+    }
+}
+
+apply plugin: 'maven'
+apply plugin: 'java'
+apply plugin: 'application'
+
+project.ext {
+    dropwizardVersion = '0.8.0'
+}
+mainClassName = 'bridge.BridgeApplication'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    compile 'io.dropwizard:dropwizard-core:' + dropwizardVersion
+    compile "org.codehaus.groovy:groovy-all:2.4.1"
+
+    testCompile "org.spockframework:spock-core:1.0-groovy-2.4"
+}
+
+jar {
+    manifest {
+        attributes "Main-Class": mainClassName
+    }
+
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+task(runSimple, dependsOn: 'classes', type: JavaExec) {
+            main = mainClassName
+            classpath = sourceSets.main.runtimeClasspath
+            args 'server'
+}
