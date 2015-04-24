@@ -1,3 +1,5 @@
 .idea
 target
 bridge.iml
+out
+.gradle
