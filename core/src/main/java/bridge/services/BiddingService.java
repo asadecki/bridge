@@ -3,7 +3,7 @@ package bridge.services;
 import bridge.bidding.BiddingProvider;
 import bridge.domain.BalanceWithPoints;
 import bridge.domain.bidding.Bidding;
-import bridge.domain.bidding.BiddingHistory;
+import bridge.domain.BiddingHistory;
 
 import java.util.List;
 

@@ -9,7 +9,7 @@ class ShufflerSpec extends Specification {
     Deck deck
 
     def setup() {
-        shuffler = new ShuffleAndDivideService()
+        shuffler = new ShuffleAndDivideService(cardsDao)
         deck = new Deck()
 
     }

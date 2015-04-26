@@ -5,12 +5,11 @@ import bridge.domain.Condition;
 import bridge.domain.Limit;
 import bridge.domain.bidding.Bidding;
 import bridge.domain.bidding.BiddingFullInfo;
-import bridge.domain.bidding.BiddingHistory;
+import bridge.domain.BiddingHistory;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;

@@ -1,4 +1,4 @@
-package bridge.domain.bidding;
+package bridge.domain;
 
 import javax.ws.rs.QueryParam;
 import java.util.Collections;

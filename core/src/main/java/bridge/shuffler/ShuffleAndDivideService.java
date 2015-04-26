@@ -5,6 +5,8 @@ import bridge.domain.Card;
 import bridge.domain.Deck;
 import bridge.domain.Hand;
 import bridge.domain.Table;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.util.Collections;
 import java.util.stream.Collectors;
@@ -13,6 +15,14 @@ import static java.util.Comparator.comparing;
 
 public class ShuffleAndDivideService implements ShufflerService {
 
+	private CardsDao cardsDao;
+
+	private ObjectMapper mapper = new ObjectMapper();
+
+	public ShuffleAndDivideService(CardsDao cardsDao) {
+		this.cardsDao = cardsDao;
+	}
+
 	@Override
 	public Table shuffle(Deck deck) {
 		Table table = new Table();
@@ -20,7 +30,11 @@ public class ShuffleAndDivideService implements ShufflerService {
 		Collections.shuffle(deck.getCards());
 		createHandForPlayers(deck, table);
 
-		CardsDao xx = new CardsDao(null);
+		try {
+			cardsDao.insertTable(mapper.writeValueAsString(table));
+		} catch (JsonProcessingException e) {
+			e.printStackTrace();
+		}
 
 		return table;
 	}

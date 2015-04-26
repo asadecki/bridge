@@ -1,6 +1,7 @@
 package bridge;
 
 import bridge.bidding.BiddingProvider;
+import bridge.cards.CardsDao;
 import bridge.domain.Deck;
 import bridge.health.TemplateHealthCheck;
 import bridge.resources.BiddingResource;
@@ -13,11 +14,11 @@ import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import org.eclipse.jetty.servlets.CrossOriginFilter;
+import org.elasticsearch.client.Client;
 
 import javax.servlet.DispatcherType;
 import javax.servlet.FilterRegistration;
 import java.util.EnumSet;
-import java.util.Random;
 
 public class BridgeApplication extends Application<BridgeConfiguration> {
 
@@ -51,11 +52,14 @@ public class BridgeApplication extends Application<BridgeConfiguration> {
 		cors.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/*");
 
 		Deck deck = new Deck();
-		Random random = new Random();
 
 		BiddingProvider biddingProvider = new BiddingProvider();
 
-		ShufflerService shufflerService = new ShuffleAndDivideService();
+		Client elasticSearchClientProvider = new ClientProvider().getClient();
+
+		CardsDao cardsDao = new CardsDao(elasticSearchClientProvider);
+
+		ShufflerService shufflerService = new ShuffleAndDivideService(cardsDao);
 		TableService tableService = new TableService(shufflerService, deck);
 		BiddingService biddingService = new BiddingService(biddingProvider);
 

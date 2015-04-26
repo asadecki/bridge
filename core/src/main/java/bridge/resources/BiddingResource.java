@@ -2,7 +2,7 @@ package bridge.resources;
 
 import bridge.domain.BalanceWithPoints;
 import bridge.domain.bidding.Bidding;
-import bridge.domain.bidding.BiddingHistory;
+import bridge.domain.BiddingHistory;
 import bridge.services.BiddingService;
 import com.codahale.metrics.annotation.Timed;
 

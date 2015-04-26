@@ -1,5 +1,7 @@
 package bridge.domain;
 
+import java.util.Date;
+
 public class Table {
 
 
@@ -34,4 +36,5 @@ public class Table {
 	public Player getPlayerWest() {
 		return playerWest;
 	}
+
 }
