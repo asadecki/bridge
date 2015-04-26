@@ -4,3 +4,5 @@ include 'dao'
 
 include 'core'
 
+include 'domain'
+

@@ -22,6 +22,10 @@ repositories {
 }
 
 dependencies {
+
+    compile project (":domain")
+    compile project (":dao")
+
     compile 'io.dropwizard:dropwizard-core:' + dropwizardVersion
     compile "org.codehaus.groovy:groovy-all:2.4.1"
 
