@@ -1,6 +1,6 @@
 rootProject.name = 'bridge'
 
-include 'backend'
-
 include 'dao'
+
+include 'core'
 

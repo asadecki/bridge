@@ -1,5 +1,6 @@
 package bridge.shuffler;
 
+import bridge.cards.CardsDao;
 import bridge.domain.Card;
 import bridge.domain.Deck;
 import bridge.domain.Hand;
@@ -18,6 +19,8 @@ public class ShuffleAndDivideService implements ShufflerService {
 
 		Collections.shuffle(deck.getCards());
 		createHandForPlayers(deck, table);
+
+		CardsDao xx = new CardsDao(null);
 
 		return table;
 	}
